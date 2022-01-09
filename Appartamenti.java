@@ -6,15 +6,21 @@ public class Appartamenti extends Annunci {
 	private boolean garage;
 	private boolean riscaldamento;
 	
-	
-	public Appartamenti (String dataPubblicazione, String ubicazione, int superficie,int annoCostruzione,String classeEnergetica,int numeroStanze,boolean doppiServizi, int prezzo,int pianoAppartamento,int pianiCondominio, boolean garage, boolean riscaldamento){
+	public Appartamenti (Date dataPubblicazione, String ubicazione, int superficie,int annoCostruzione,String classeEnergetica,int numeroStanze,boolean doppiServizi, int prezzo,int pianoAppartamento,int pianiCondominio, boolean garage, boolean riscaldamento){
 		 super(dataPubblicazione, ubicazione, superficie, annoCostruzione, classeEnergetica, numeroStanze, doppiServizi, prezzo);
 		 	this.pianoAppartamento = pianoAppartamento;
 	        this.pianiCondominio = pianiCondominio;
-	        this.garage= garage;
-	        this.riscaldamento= riscaldamento;
+	        this.garage = garage;
+	        this.riscaldamento = riscaldamento;
 	        }
-	
+			
+	@Override
+	public String stampaCompleta (){
+		super.stampaCompleta ();
+		return super.stampaCompleta() + "\n" + getPianoAppartamento() + "\n" + getPianiCondominio() + "\n" + 
+		getGarage() + "\n" + getRiscaldamento() + "\n";
+	}
+
 	public int getPianoAppartamento() {
 		return pianoAppartamento;
 	}
