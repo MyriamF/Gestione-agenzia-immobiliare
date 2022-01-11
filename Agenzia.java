@@ -44,6 +44,8 @@ public class Agenzia {
                   switch(sceltaTipologia){
                     case "A":{
                       System.out.println("Aggiungere infomazioni relative all'appartamento"); 
+                      Annunci nuovoAnnuncio = new Annunci();
+                      nuovoAnnuncio.getClass();
                     }
                     case "B" :{
                     	System.out.println("Aggiungere informazioni relative alla villetta");

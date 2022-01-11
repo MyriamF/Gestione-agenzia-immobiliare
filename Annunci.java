@@ -32,6 +32,13 @@ public class Annunci {
 		codice ++;
     }
 
+	public Annunci() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Inerisici l'ubicazione");
+		ubicazione = input.nextLine();
+		System.out.println(getUbicazione());
+	}
+
 	public String stampaSintetica () {
 		return getTipologia() + "\n" + getDataPubblicazione() + "\n" + getSuperficie() + "\n" + getPrezzo();
 	}
