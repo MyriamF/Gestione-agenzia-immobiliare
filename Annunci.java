@@ -18,8 +18,8 @@ public class Annunci {
 	static int codice = 1;
 
 	
-	public Annunci(Date dataPubblicazione, String ubicazione, int superficie, int annoCostruzione, String classeEnergetica, int numeroStanze, boolean doppiServizi,int prezzo, String tipologia ){
-        this.dataPubblicazione = dataPubblicazione;
+	public Annunci(Date dataPubblicazione, String ubicazione, int superficie, int annoCostruzione, String classeEnergetica, int numeroStanze, boolean doppiServizi,int prezzo,String tipologia) {
+		this.dataPubblicazione = dataPubblicazione;
         this.ubicazione = ubicazione;
         this.superficie = superficie;
         this.annoCostruzione = annoCostruzione;

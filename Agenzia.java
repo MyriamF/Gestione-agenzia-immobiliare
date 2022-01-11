@@ -5,8 +5,10 @@ public class Agenzia {
 		Scanner input = new Scanner(System.in);
 		
 		String menu = "1. Aggiungere annuncio\n2. Eliminare annuncio\n3. Elenco\n4. Visualizza dettagli\n5. Elenco sintetico\n6. Filtro prezzo\n7. Salva\n8. Carica\n9. Esci\n";
-        int scelta = 0;
-        Vector<Annunci> Lista = new Vector <Annunci> ();
+    String menu2 = "A. Aggiungi un appartamento.\nB. Aggiungi una villetta";
+    int scelta = 0;
+    String sceltaTipologia = "";
+    Vector<Annunci> Lista = new Vector <Annunci> ();
 
         while (true) {
             do {
@@ -24,7 +26,32 @@ public class Agenzia {
          
             switch (scelta) {
               case 1: {
-                System.out.println ("Aggiungere annuncio"); break;
+                System.out.println ("Aggiungere annuncio");
+                 do {
+                      try {
+                          System.out.println(menu2);
+                          sceltaTipologia = input.next();
+                      }
+                      catch (InputMismatchException e) {
+                          System.out.println("Non è un");
+                          input.next();
+                          sceltaTipologia = "";
+                      }
+
+                  }
+                  while (sceltaTipologia.equals(""));  
+
+                  switch(sceltaTipologia){
+                    case "A":{
+                      System.out.println("Aggiungere infomazioni relative all'appartamento"); 
+                    }
+                    case "B" :{
+                    	System.out.println("Aggiungere informazioni relative alla villetta");
+                    }   default : {
+                    	input.close();
+                    	return;
+                    }
+                  } break;
               }
               case 2: {
                 System.out.println ("Eliminare annuncio"); break;
@@ -59,6 +86,6 @@ public class Agenzia {
         }
 	    }
     }
-}
+
 
 
