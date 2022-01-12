@@ -65,7 +65,21 @@ public class Agenzia {
 
 
         private static void aggiuntaAnnuncio(){
-          
+          String dat = 0; 
+          String ub = "";
+          int metri = 0;
+          int anno = 0;
+          String energia = "";
+          int stanze = 0;
+          boolean servizi = true;
+          int prez = 0;
+          int pianoA = 0;
+          int pianoB = 0;
+          int mGiardino = 0;
+          boolean doppS = true;
+          boolean garag = true;
+          boolean riscaldamentoA = true;
+
         }
 	    // da qui iniziamo a fare le funzioni, ho semplicemnte tagliato tutti gli switch  fatti in  Case 1
         /* do {
@@ -156,9 +170,9 @@ public class Agenzia {
                       System.out.println("Inserisci prezzo dell'immobile: \n");
                       int prez = input.nextInt();
                       System.out.println("Inserisci la metratura del giardino: \n");
-                      int mgiardino = input.nextInt ();
+                      int mGiardino = input.nextInt ();
 
-                      //Villette vill = new Villette (dat, ub, metri, anno, energia, stanze, prez, pianoA, pianoB, mgiardino);
+                      //Villette vill = new Villette (dat, ub, metri, anno, energia, stanze, prez, pianoA, pianoB, mGiardino);
                       //Lista.add(vill);
                     }  default : {
                     	input.close();
