@@ -62,12 +62,115 @@ public class Agenzia {
 
 
         private static void aggiuntaAnnuncio(){
+          Scanner input = new Scanner (System.in);
           String menu2 = "A. Aggiungi un appartamento.\nB. Aggiungi una villetta";
-          String menu3 = "1. Dotato di doppi servizi.\n 2. Non dotato di doppi servizi";
           String sceltaTipologia = "";
-          int sceltaServizi = 0;
-        
+         
+
+          do {
+                      try {
+                          System.out.println(menu2);
+                          sceltaTipologia = input.next();
+                      }
+                      catch (InputMismatchException e) {
+                          System.out.println("Non è un");
+                          input.next();
+                          sceltaTipologia = "";
+                      }
+
+                  }
+                  while (sceltaTipologia.equals(""));  
+
+                  switch(sceltaTipologia){
+                    case "A":{
+                      System.out.println("Aggiungere infomazioni relative all'appartamento");break; 
+                      //aggiuntaAppartamento();
+                    }
+                    case "B" :{
+                    	System.out.println("Aggiungere informazioni relative alla villetta");break;
+                      //aggiuntaVilletta();
+                    }
+               }
         }
+
+        private static void aggiuntaAppartamento(){
+          Scanner input = new Scanner (System.in)
+          String menu3 = "1. Dotato di doppi servizi.\n 2. Non dotato di doppi servizi";
+          int sceltaServizi = 0;
+          String dat = ""; 
+          String ub = "";
+          int metri = 0;
+          int anno = 0;
+          String energia = "";
+          int stanze = 0;
+          boolean servizi = true;
+          int prez = 0;
+          int pianoA = 0;
+          int pianoB = 0;
+          boolean doppS = true;
+          boolean garag = true;
+          boolean riscaldamentoA = true;
+          
+          System.out.println("Inserisci data: \n");
+          int dat = input.nextInt();
+          System.out.println("Inserisci ubicazione: \n");
+          String ub = input.nextLine();
+          System.out.println("Inserisci metratura: \n");
+          int metri = input.nextInt();
+          System.out.println("Inserisci anno di costruzione dell'immobile: \n");
+          int anno = input.nextInt();
+          System.out.println("Inserisci classe energetica: \n");
+          String energia = input.nextLine();
+          System.out.println("Inserisci il numero delle stanze: \n");
+          int stanze = input.nextInt();
+          System.out.println("Inserisci se nell'immobile ci sono doppi servizi: \n");
+          //sceltaServizi
+          System.out.println("Inserisci prezzo dell'immobile: \n");
+          int prez = input.nextInt();
+          System.out.println("Inserisci il piano dell'appartamento: \n");
+          int pianoA = input.nextInt();
+          System.out.println("Inserisci il numero dei piani presenti nel condominio: \n");
+          int pianoB = input.nextInt();
+          System.out.println("Inserisci se l'immobile è dotato di garage: \n");
+          //sceltaGarage
+          System.out.println("Inserisci se l'immobile ha il riscaldamento autonomo:\n");
+          //sceltaRiscaldamento
+          // \n");
+        }
+
+        private static void aggiuntaVilletta(){
+          Scanner input = new Scanner (System.in);
+          String dat = "";
+          String ub = "";
+          int metri = 0;
+          int anno = 0;
+          String energia = "";
+          int stanze = 0;
+          boolean servizi = true;
+          int prez = 0;
+          int mgiardino = 0;
+
+          System.out.println("Inserisci data: \n");
+          dat = input.nextInt();
+          System.out.println("Inserisci ubicazione: \n");
+          ub = input.nextLine();
+          System.out.println("Inserisci metratura: \n");
+          metri = input.nextInt();
+          System.out.println("Inserisci anno di costruzione dell'immobile: \n");
+          anno = input.nextInt();
+          System.out.println("Inserisci classe energetica: \n");
+          energia = input.nextLine();
+          System.out.println("Inserisci il numero delle stanze: \n");
+          stanze = input.nextInt();
+          System.out.println("Inserisci se nell'immobile ci sono doppi servizi: \n");
+          //sceltaservizi
+          System.out.println("Inserisci prezzo dell'immobile: \n");
+          prez = input.nextInt();
+          System.out.println("Inserisci la metratura del giardino: \n");
+          mgiardino = input.nextInt();
+
+        }
+
 	    // da qui iniziamo a fare le funzioni, ho semplicemnte tagliato tutti gli switch  fatti in  Case 1
         /* do {
                       try {
@@ -169,6 +272,6 @@ public class Agenzia {
               }
  
 }*/
-  }
+  
 }
 
