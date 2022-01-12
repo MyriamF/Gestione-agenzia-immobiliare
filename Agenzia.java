@@ -5,11 +5,8 @@ public class Agenzia {
 		Scanner input = new Scanner(System.in);
 		
 		String menu = "1. Aggiungere annuncio\n2. Eliminare annuncio\n3. Elenco\n4. Visualizza dettagli\n5. Elenco sintetico\n6. Filtro prezzo\n7. Salva\n8. Carica\n9. Esci\n";
-    String menu2 = "A. Aggiungi un appartamento.\nB. Aggiungi una villetta";
-    String menu3 = "1. Dotato di doppi servizi.\n 2. Non dotato di doppi servizi";
     int scelta = 0;
-    String sceltaTipologia = "";
-    int sceltaServizi = 0;
+
     Vector <Annunci> Lista = new Vector <Annunci> ();
          
 
@@ -65,6 +62,10 @@ public class Agenzia {
 
 
         private static void aggiuntaAnnuncio(){
+          String menu2 = "A. Aggiungi un appartamento.\nB. Aggiungi una villetta";
+          String menu3 = "1. Dotato di doppi servizi.\n 2. Non dotato di doppi servizi";
+          String sceltaTipologia = "";
+          int sceltaServizi = 0;
         
         }
 	    // da qui iniziamo a fare le funzioni, ho semplicemnte tagliato tutti gli switch  fatti in  Case 1
