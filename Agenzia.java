@@ -8,7 +8,8 @@ public class Agenzia {
     String menu2 = "A. Aggiungi un appartamento.\nB. Aggiungi una villetta";
     int scelta = 0;
     String sceltaTipologia = "";
-    Vector<Annunci> Lista = new Vector <Annunci> ();
+    Vector <Annunci> Lista = new Vector <Annunci> ();
+         
 
         while (true) {
             do {
@@ -44,11 +45,38 @@ public class Agenzia {
                   switch(sceltaTipologia){
                     case "A":{
                       System.out.println("Aggiungere infomazioni relative all'appartamento"); 
-                      Annunci nuovoAnnuncio = new Annunci();
-                      nuovoAnnuncio.getClass();
+                      Appartamento app = new Appartamento ();
+                      
+                      System.out.println("Inserisci data: \n");
+                      System.out.println("Inserisci ubicazione: \n");
+                      System.out.println("Inserisci metratura: \n");
+                      System.out.println("Inserisci anno di costruzione dell'immobile: \n");
+                      System.out.println("Inserisci classe energetica: \n");
+                      System.out.println("Inserisci il numero delle stanze: \n");
+                      System.out.println("Inserisci se nell'immobile ci sono doppi servizi: \n");
+                      System.out.println("Inserisci prezzo dell'immobile: \n");
+                      System.out.println("Inserisci il piano dell'appartamento: \n");
+                      System.out.println("Inserisci il numero dei piani presenti nel condominio: \n");
+                      System.out.println("Inserisci se l'immobile è dotato di garage: \n");
+                      System.out.println("Inserisci se l'immobile ha il riscaldamento autonomo: \n");
+                      
+                      Lista.add(app);
                     }
                     case "B" :{
                     	System.out.println("Aggiungere informazioni relative alla villetta");
+                      Villetta vill = new Villetta ();
+                      
+                      System.out.println("Inserisci data: \n");
+                      System.out.println("Inserisci ubicazione: \n");
+                      System.out.println("Inserisci metratura: \n");
+                      System.out.println("Inserisci anno di costruzione dell'immobile: \n");
+                      System.out.println("Inserisci classe energetica: \n");
+                      System.out.println("Inserisci il numero delle stanze: \n");
+                      System.out.println("Inserisci se nell'immobile ci sono doppi servizi: \n");
+                      System.out.println("Inserisci prezzo dell'immobile: \n");
+                      System.out.println("Inserisci la metratura del giardino: \n");
+                      
+                      Lista.add(vill);
                     }   default : {
                     	input.close();
                     	return;

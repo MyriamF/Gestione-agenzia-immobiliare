@@ -34,7 +34,6 @@ public class Annunci {
 
 	public Annunci() {
 		Scanner input = new Scanner(System.in);
-		System.out.println("Inerisici l'ubicazione");
 		ubicazione = input.nextLine();
 		System.out.println(getUbicazione());
 	}
