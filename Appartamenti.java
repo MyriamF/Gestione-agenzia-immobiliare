@@ -13,7 +13,13 @@ public class Appartamenti extends Annunci {
 	        this.garage = garage;
 	        this.riscaldamento = riscaldamento;
 	        }
-			
+
+	//costruttore vuoto
+	public Appartamenti (){
+		super(dataPubblicazione, ubicazione, superficie, annoCostruzione, classeEnergetica, numeroStanze, doppiServizi, prezzo);
+	}
+
+
 	@Override
 	public String stampaCompleta (){
 		super.stampaCompleta ();

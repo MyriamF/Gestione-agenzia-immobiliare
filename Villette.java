@@ -9,6 +9,12 @@ public class Villette extends Annunci{
 		
 	}
 	
+	//costruttore vuoto
+	public Villetta (){
+		super(dataPubblicazione, ubicazione, superficie, annoCostruzione, classeEnergetica, numeroStanze, doppiServizi, prezzo);
+	}
+
+
 	@Override
 	public String stampaCompleta(){
 		super.stampaCompleta ();

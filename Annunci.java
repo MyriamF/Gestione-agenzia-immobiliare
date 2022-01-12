@@ -32,6 +32,7 @@ public class Annunci {
 		codice ++;
     }
 
+	//costruttore vuoto
 	public Annunci() {
 		Scanner input = new Scanner(System.in);
 		ubicazione = input.nextLine();
