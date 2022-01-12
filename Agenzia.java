@@ -62,8 +62,12 @@ public class Agenzia {
               }
             }  
         }
-	    
-      // da qui iniziamo a fare le funzioni, ho semplicemnte tagliato tutti gli switch  fatti in  Case 1
+
+
+        private static void aggiuntaAnnuncio(){
+          
+        }
+	    // da qui iniziamo a fare le funzioni, ho semplicemnte tagliato tutti gli switch  fatti in  Case 1
         /* do {
                       try {
                           System.out.println(menu2);
