@@ -45,39 +45,59 @@ public class Agenzia {
                   switch(sceltaTipologia){
                     case "A":{
                       System.out.println("Aggiungere infomazioni relative all'appartamento"); 
-                      Appartamento app = new Appartamento ();
                       
                       System.out.println("Inserisci data: \n");
+                      int dat = input.nextInt();
                       System.out.println("Inserisci ubicazione: \n");
+                      String ub = input.nextLine();
                       System.out.println("Inserisci metratura: \n");
+                      int metri = input.nextInt();
                       System.out.println("Inserisci anno di costruzione dell'immobile: \n");
+                      int anno = input.nextLine();
                       System.out.println("Inserisci classe energetica: \n");
+                      String energia = input.nextLine();
                       System.out.println("Inserisci il numero delle stanze: \n");
-                      System.out.println("Inserisci se nell'immobile ci sono doppi servizi: \n");
+                      int stanze = input.nexInt();
+                      //System.out.println("Inserisci se nell'immobile ci sono doppi servizi: \n"); 
                       System.out.println("Inserisci prezzo dell'immobile: \n");
+                      int prez = input.nexInt();
                       System.out.println("Inserisci il piano dell'appartamento: \n");
+                      int pianoA = input.nextInt();
                       System.out.println("Inserisci il numero dei piani presenti nel condominio: \n");
-                      System.out.println("Inserisci se l'immobile è dotato di garage: \n");
-                      System.out.println("Inserisci se l'immobile ha il riscaldamento autonomo: \n");
-                      
+                      int pianoB= input.nextInt ();
+                      //System.out.println("Inserisci se l'immobile è dotato di garage: \n");
+                      //System.out.println("Inserisci se l'immobile ha il riscaldamento autonomo: \n");
+
+                      Appartamento app = new Appartamento (dat, ub, metri, anno, energia, stanze, prez, pianoA, pianoB);
                       Lista.add(app);
+                        
                     }
+          
                     case "B" :{
                     	System.out.println("Aggiungere informazioni relative alla villetta");
-                      Villetta vill = new Villetta ();
+                      
                       
                       System.out.println("Inserisci data: \n");
+                      int dat = input.nextInt();
                       System.out.println("Inserisci ubicazione: \n");
+                      String ub = input.nextLine();
                       System.out.println("Inserisci metratura: \n");
+                      int metri = input.nextInt();
                       System.out.println("Inserisci anno di costruzione dell'immobile: \n");
+                      int anno = input.nextLine();
                       System.out.println("Inserisci classe energetica: \n");
+                      String energia = input.nextLine();
                       System.out.println("Inserisci il numero delle stanze: \n");
-                      System.out.println("Inserisci se nell'immobile ci sono doppi servizi: \n");
+                      int stanze = input.nexInt();
+                      //System.out.println("Inserisci se nell'immobile ci sono doppi servizi: \n");
                       System.out.println("Inserisci prezzo dell'immobile: \n");
+                      int prez = input.nexInt();
                       System.out.println("Inserisci la metratura del giardino: \n");
-                      
+                      int mgiardino = input.nextInt ();
+
+                      Villetta vill = new Villetta (dat, ub, metri, anno, energia, stanze, prez, pianoA, pianoB, mgiardino);
                       Lista.add(vill);
-                    }   default : {
+                    }  default : {
                     	input.close();
                     	return;
                     }
