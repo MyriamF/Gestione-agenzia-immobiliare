@@ -53,11 +53,11 @@ public class Agenzia {
                       System.out.println("Inserisci metratura: \n");
                       int metri = input.nextInt();
                       System.out.println("Inserisci anno di costruzione dell'immobile: \n");
-                      int anno = input.nextLine();
+                      int anno = input.nextInput();
                       System.out.println("Inserisci classe energetica: \n");
                       String energia = input.nextLine();
                       System.out.println("Inserisci il numero delle stanze: \n");
-                      int stanze = input.nexInt();
+                      int stanze = input.nextInt();
                       //System.out.println("Inserisci se nell'immobile ci sono doppi servizi: \n"); 
                       System.out.println("Inserisci prezzo dell'immobile: \n");
                       int prez = input.nexInt();
@@ -84,11 +84,11 @@ public class Agenzia {
                       System.out.println("Inserisci metratura: \n");
                       int metri = input.nextInt();
                       System.out.println("Inserisci anno di costruzione dell'immobile: \n");
-                      int anno = input.nextLine();
+                      int anno = input.nextInt();
                       System.out.println("Inserisci classe energetica: \n");
                       String energia = input.nextLine();
                       System.out.println("Inserisci il numero delle stanze: \n");
-                      int stanze = input.nexInt();
+                      int stanze = input.nextInt();
                       //System.out.println("Inserisci se nell'immobile ci sono doppi servizi: \n");
                       System.out.println("Inserisci prezzo dell'immobile: \n");
                       int prez = input.nexInt();
