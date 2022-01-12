@@ -64,11 +64,11 @@ public class Agenzia {
                       System.out.println("Inserisci il piano dell'appartamento: \n");
                       int pianoA = input.nextInt();
                       System.out.println("Inserisci il numero dei piani presenti nel condominio: \n");
-                      int pianoB= input.nextInt ();
+                      int pianoB = input.nextInt ();
                       //System.out.println("Inserisci se l'immobile è dotato di garage: \n");
                       //System.out.println("Inserisci se l'immobile ha il riscaldamento autonomo: \n");
 
-                      Appartamento app = new Appartamento (dat, ub, metri, anno, energia, stanze, prez, pianoA, pianoB);
+                      Appartamenti app = new Appartamenti (dat, ub, metri, anno, energia, stanze, prez, pianoA, pianoB);
                       Lista.add(app);
                         
                     }
@@ -95,7 +95,7 @@ public class Agenzia {
                       System.out.println("Inserisci la metratura del giardino: \n");
                       int mgiardino = input.nextInt ();
 
-                      Villetta vill = new Villetta (dat, ub, metri, anno, energia, stanze, prez, pianoA, pianoB, mgiardino);
+                      Villette vill = new Villette (dat, ub, metri, anno, energia, stanze, prez, mgiardino);
                       Lista.add(vill);
                     }  default : {
                     	input.close();
