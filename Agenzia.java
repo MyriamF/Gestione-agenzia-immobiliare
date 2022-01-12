@@ -30,6 +30,7 @@ public class Agenzia {
             switch (scelta) {
               case 1: {
                 System.out.println ("Aggiungere annuncio");
+              }
               case 2: {
                 System.out.println ("Eliminare annuncio"); break;
               }
@@ -62,7 +63,7 @@ public class Agenzia {
             }  
         }
 	    // da qui iniziamo a fare le funzioni, ho semplicemnte tagliato tutti gli switch  fatti in  Case 1
-         do {
+        /* do {
                       try {
                           System.out.println(menu2);
                           sceltaTipologia = input.next();
@@ -121,15 +122,15 @@ public class Agenzia {
                       System.out.println("Inserisci il piano dell'appartamento: \n");
                       int pianoA = input.nextInt();
                       System.out.println("Inserisci il numero dei piani presenti nel condominio: \n");
-                      int pianoB= input.nextInt ();
+                      int pianoB = input.nextInt ();
                       //System.out.println("Inserisci se l'immobile è dotato di garage: \n");
                       //System.out.println("Inserisci se l'immobile ha il riscaldamento autonomo: \n");
 
-                      Appartamenti app = new Appartamenti (dat, ub, metri, anno, energia, stanze, prez, pianoA, pianoB);
-                      Lista.add(app);
+                      //Appartamenti app = new Appartamenti (dat, ub, metri, anno, energia, stanze, prez, pianoA, pianoB);
+                      //Lista.add(app);
                         
                     }
-          
+                  }
                     case "B" :{
                     	System.out.println("Aggiungere informazioni relative alla villetta");
                       
@@ -152,8 +153,8 @@ public class Agenzia {
                       System.out.println("Inserisci la metratura del giardino: \n");
                       int mgiardino = input.nextInt ();
 
-                      Villette vill = new Villette (dat, ub, metri, anno, energia, stanze, prez, pianoA, pianoB, mgiardino);
-                      Lista.add(vill);
+                      //Villette vill = new Villette (dat, ub, metri, anno, energia, stanze, prez, pianoA, pianoB, mgiardino);
+                      //Lista.add(vill);
                     }  default : {
                     	input.close();
                     	return;
@@ -161,7 +162,7 @@ public class Agenzia {
                   } break;
               }
  
+}*/
+  }
 }
-
-
 
