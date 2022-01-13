@@ -95,8 +95,10 @@ public class Agenzia {
         }
         
 
-        public void aggiuntaAppartamento(){
+        public static Appartamenti aggiuntaAppartamento(){
           Scanner input = new Scanner (System.in);
+          String menu3 = "1. Dotato di doppi servizi.\n 2. Non dotato di doppi servizi";
+          int sceltaServizi = 0;
           String data = ""; 
           String ub = "";
           int metri = 0;
@@ -126,7 +128,15 @@ public class Agenzia {
           System.out.println("Inserisci il numero delle stanze: \n");
           stanze = input.nextInt();
           System.out.println("Inserisci se nell'immobile ci sono doppi servizi: \n");
-          doppiS = Agenzia.sceltaServizi();
+          System.out.println(menu3);
+          sceltaServizi = input.nextInt();
+          if (sceltaServizi == 1){
+            doppiS = true;
+          } else if (sceltaServizi == 2) {
+            doppiS = false;
+          } else if ((sceltaServizi != 1) && (sceltaServizi != 2)) {
+            System.out.println("Scelta errata");
+          }
           System.out.println("Inserisci prezzo dell'immobile: \n");
           prez = input.nextInt();
           System.out.println("Inserisci il piano dell'appartamento: \n");
@@ -138,9 +148,11 @@ public class Agenzia {
           System.out.println("Inserisci se l'immobile ha il riscaldamento autonomo:\n");
           riscaldamento = Agenzia.sceltaRiscaldamento();
           
+          Appartamenti app = new Appartamenti(data, ub, metri, anno, energia, stanze,doppiS,prez,tipologia,pianoA, pianoCond,garage, riscaldamento);
+        
         }
 
-        public void aggiuntaVilletta(){
+        public static Villette aggiuntaVilletta(){
           Scanner input = new Scanner (System.in);
           String data = "";
           String ub = "";
@@ -151,9 +163,9 @@ public class Agenzia {
           boolean doppiS = true;
           int prez = 0;
           String tipologia = "Villetta"; 
-          int mgiardino = 0;
+          int mGiardino = 0;
 
-          System.out.println("Inserimento annuncio di tipo" + tipologia);
+         try { System.out.println("Inserimento annuncio di tipo" + tipologia);
           System.out.println("Inserisci data: \n");
           data = input.nextLine();
           System.out.println("Inserisci ubicazione: \n");
@@ -171,11 +183,35 @@ public class Agenzia {
           System.out.println("Inserisci prezzo dell'immobile: \n");
           prez = input.nextInt();
           System.out.println("Inserisci la metratura del giardino: \n");
-          mgiardino = input.nextInt();
-
+          mGiardino = input.nextInt();
+        } catch(InputMismatchException e){
+                System.out.println("Non è un numero!");
+                input.next();
+                return;
+        }
+        
+        Villette villetta = new Villette(data,ub,metri,anno,energia,stanze,prez,mGiardino); 
+        Lista.add(villetta);
         }
 
-        private static boolean sceltaServizi(){
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*private static boolean sceltaServizi(){
           Scanner input = new Scanner (System.in);
 
           String menu3 = "1. Dotato di doppi servizi.\n 2. Non dotato di doppi servizi";
@@ -298,7 +334,7 @@ public class Agenzia {
         }
 
 	    // da qui iniziamo a fare le funzioni, ho semplicemnte tagliato tutti gli switch  fatti in  Case 1
-        /* do {
+         do {
                       try {
                           System.out.println(menu2);
                           sceltaTipologia = input.next();
@@ -399,5 +435,6 @@ public class Agenzia {
  
 }*/
   
+}
 }
 
