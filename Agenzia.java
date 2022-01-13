@@ -95,7 +95,7 @@ public class Agenzia {
         }
         
 
-        private static void aggiuntaAppartamento(){
+        public void aggiuntaAppartamento(){
           Scanner input = new Scanner (System.in);
           String data = ""; 
           String ub = "";
@@ -112,7 +112,7 @@ public class Agenzia {
           boolean riscaldamento = true;
           
 
-          System.out.println("Inserimento annuncio di tipo" +tipologia);
+          System.out.println("Inserimento annuncio di tipo" + tipologia);
           System.out.println("Inserisci data: \n");
           data = input.nextLine();
           System.out.println("Inserisci ubicazione: \n");
@@ -137,10 +137,10 @@ public class Agenzia {
           garage = Agenzia.sceltaGarage();
           System.out.println("Inserisci se l'immobile ha il riscaldamento autonomo:\n");
           riscaldamento = Agenzia.sceltaRiscaldamento();
-          // \n");
+          
         }
 
-        private static  void aggiuntaVilletta(){
+        public void aggiuntaVilletta(){
           Scanner input = new Scanner (System.in);
           String data = "";
           String ub = "";
@@ -220,7 +220,7 @@ public class Agenzia {
         private static boolean sceltaGarage(){
           Scanner input = new Scanner (System.in);
 
-          String menu4 = "1. Dotato di doppi garage.\n 2. Non dotato di garage";
+          String menu4 = "1. Dotato di garage.\n 2. Non dotato di garage";
           int sceltaGarage = 0;
           boolean garage = true;
          
