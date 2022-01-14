@@ -27,7 +27,7 @@ public class Agenzia {
          
             switch (scelta) {
               case 1: {
-                System.out.println ("Aggiungere annuncio");
+                System.out.println ("Aggiungere annuncio");break;
               }
               case 2: {
                 System.out.println ("Eliminare annuncio"); break;
@@ -141,6 +141,7 @@ public class Agenzia {
                 } else if (sceltaServizi == 2) {
                   doppiS = false;
                 } 
+              
                 System.out.println("Inserisci prezzo dell'immobile: ");
                 prez = input.nextInt();
                 System.out.println("Inserisci il piano dell'appartamento: ");
@@ -155,6 +156,7 @@ public class Agenzia {
                 } else if (sceltaGarage == 2){
                   garage = false;
                 }
+                throw new Exception(menu4);
                 System.out.println("Inserisci se l'immobile ha il riscaldamento autonomo:");
                 System.out.println(menu5);
                 sceltaRis = input.nextInt();
@@ -167,6 +169,12 @@ public class Agenzia {
                       System.out.println("Errore dato atteso");
                       input.next();
                       return;
+                } catch (IndexOutOfBoundsException e) {
+                         System.out.println("non è una stringa");
+                         input.next();
+                  return;
+                } catch (NumberFormatException e) {
+                      System.out.println("non è un numero");
                 }
 
           Appartamenti app = new Appartamenti(data, ub, metri, anno, energia, stanze,doppiS,prez,tipologia,pianoA, pianoCond,garage, riscaldamento);
@@ -218,6 +226,12 @@ public class Agenzia {
                     System.out.println("Errore dato atteso");
                     input.next();
                     return;
+            } catch(IndexOutOfBoundsException e){
+                    System.out.println("non è una stringa");
+                    input.next();
+                    return;
+            } catch (NumberFormatException e){
+                    System.out.println("non è un numero");
             }
        
        
