@@ -81,10 +81,13 @@ public class Agenzia {
               }   
               default: {
                 System.out.println ("Valore errato");
-              }
+              } 
             }  
-          }
-        }
+         }
+      }
+    
+        
+
 
 //metodi ausiliari
         
@@ -187,7 +190,7 @@ public class Agenzia {
           Lista.add(app);
         }
 
-        public void aggiuntaVilletta() throws IOException{
+       public void aggiuntaVilletta() throws IOException{
           Scanner input = new Scanner (System.in);
           String menu3 = "1. Dotato di doppi servizi.\n 2. Non dotato di doppi servizi";
           int sceltaServizi = 0;
