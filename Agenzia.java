@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.*;
+
 public class Agenzia {
 
 	public static void main(String[] args) throws IOException {
@@ -27,28 +28,36 @@ public class Agenzia {
          
             switch (scelta) {
               case 1: {
-                System.out.println ("Aggiungere annuncio");break;
+                System.out.println ("Aggiungere annuncio");
+                break;
               }
               case 2: {
-                System.out.println ("Eliminare annuncio"); break;
+                System.out.println ("Eliminare annuncio"); 
+                break;
               }
               case 3: {
-                System.out.println ("Elenco"); break;
+                System.out.println ("Elenco"); 
+                break;
               }
               case 4: {
-                System.out.println ("Visualizza dettagli"); break;
+                System.out.println ("Visualizza dettagli"); 
+                break;
               }
               case 5:{
-                System.out.println ("Elenco sintetico"); break;
+                System.out.println ("Elenco sintetico"); 
+                break;
               }
               case 6: {
-                System.out.println ("Filtro prezzo"); break;
+                System.out.println ("Filtro prezzo"); 
+                break;
               }
               case 7: {
-                System.out.println ("Salva"); break;
+                System.out.println ("Salva"); 
+                break;
               }
               case 8: {
-                System.out.println ("Carica"); break;
+                System.out.println ("Carica"); 
+                break;
               }
               case 9: {
                 System.out.println("Chiusura programma");
@@ -65,7 +74,7 @@ public class Agenzia {
 //metodi ausiliari
         private static <Annnunci> void aggiuntaAnnuncio(){
           Scanner input = new Scanner (System.in);
-          String menu2 = "A. Aggiungi un appartamento.\nB. Aggiungi una villetta";
+          String menu2 = "1. Aggiungi un appartamento.\n2. Aggiungi una villetta";
           String sceltaTipologia = "";
          
 
@@ -75,7 +84,7 @@ public class Agenzia {
                           sceltaTipologia = input.next();
                       }
                       catch (InputMismatchException e) {
-                          System.out.println("Non è un");
+                          System.out.println("Errore, inserire 1 o 2");
                           input.next();
                           sceltaTipologia.equals("");
                       }
@@ -85,13 +94,17 @@ public class Agenzia {
 
                   switch(sceltaTipologia){
                     case "A":{
-                      System.out.println("Aggiungere infomazioni relative all'appartamento");break; 
+                      System.out.println("Aggiungere infomazioni relative all'appartamento");
+                      break; 
                       aggiuntaAppartamento();
-                    } break;
+                      break;
+                    }
                     case "B" :{
-                    	System.out.println("Aggiungere informazioni relative alla villetta");break;
+                    	System.out.println("Aggiungere informazioni relative alla villetta");
+                      break;
                       aggiuntaVilletta();
-                    } break;
+                     break;
+                    }
                }
         }
         
@@ -134,6 +147,7 @@ public class Agenzia {
                 System.out.println("Inserisci il numero delle stanze: ");
                 stanze = input.nextInt();
                 System.out.println("Inserisci se nell'immobile ci sono doppi servizi: ");
+                
                 System.out.println(menu3);
                 sceltaServizi = input.nextInt();
                 if (sceltaServizi == 1){
