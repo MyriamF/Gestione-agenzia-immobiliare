@@ -1,4 +1,4 @@
-
+import java.sql.Date;
 
 public class Annunci {
 	//TODO Cambiare tipo
@@ -82,7 +82,7 @@ public class Annunci {
 		return tipologia;
 	}
 
-	public void setDataPubblicazione (String data) {
+	public void setDataPubblicazione (Date data) {
 	    this.dataPubblicazione = data;
 	}
 	    

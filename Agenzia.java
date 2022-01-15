@@ -1,5 +1,8 @@
 import java.io.IOException;
 import java.util.*;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
 
 public class Agenzia {
 
@@ -7,6 +10,8 @@ public class Agenzia {
 		Scanner input = new Scanner(System.in);
 		
 		String menu = "1. Aggiungere annuncio\n2. Eliminare annuncio\n3. Elenco\n4. Visualizza dettagli\n5. Elenco sintetico\n6. Filtro prezzo\n7. Salva\n8. Carica\n9. Esci\n";
+    String menu2 = "1. Aggiungi un appartamento.\n2. Aggiungi una villetta";
+    int sceltaTipologia = 0;
     int scelta = 0;
 
     Vector <Annunci> Lista = new Vector <Annunci> ();
@@ -22,6 +27,7 @@ public class Agenzia {
                     System.out.println("Non è un numero!");
                     input.next();
                     scelta = 0;
+                    sceltaTipologia = 0;
                 }
             }
             while (scelta == 0);     
@@ -29,6 +35,15 @@ public class Agenzia {
             switch (scelta) {
               case 1: {
                 System.out.println ("Aggiungere annuncio");
+                System.out.println(menu2);
+                sceltaTipologia = input.nextInt();
+                if (sceltaTipologia == 1) {
+                  System.out.println("Aggiungere infomazioni relative all'appartamento");
+                } else if (sceltaTipologia == 2) {
+                  System.out.println("Aggiungere infomazioni relative alla villetta");
+                } if ((sceltaTipologia != 1) && (sceltaTipologia != 2)){
+                  throw new InputMismatchException();
+                }
                 break;
               }
               case 2: {
@@ -72,41 +87,6 @@ public class Agenzia {
         }
 
 //metodi ausiliari
-        private static <Annnunci> void aggiuntaAnnuncio(){
-          Scanner input = new Scanner (System.in);
-          String menu2 = "1. Aggiungi un appartamento.\n2. Aggiungi una villetta";
-          String sceltaTipologia = "";
-         
-
-          do {
-                      try {
-                          System.out.println(menu2);
-                          sceltaTipologia = input.next();
-                      }
-                      catch (InputMismatchException e) {
-                          System.out.println("Errore, inserire 1 o 2");
-                          input.next();
-                          sceltaTipologia.equals("");
-                      }
-
-                  }
-                  while (sceltaTipologia.equals(""));  
-
-                  switch(sceltaTipologia){
-                    case "A":{
-                      System.out.println("Aggiungere infomazioni relative all'appartamento");
-                      break; 
-                      aggiuntaAppartamento();
-                      break;
-                    }
-                    case "B" :{
-                    	System.out.println("Aggiungere informazioni relative alla villetta");
-                      break;
-                      aggiuntaVilletta();
-                     break;
-                    }
-               }
-        }
         
 
         public void  aggiuntaAppartamento() throws IOException{
@@ -118,6 +98,7 @@ public class Agenzia {
           int sceltaGarage = 0;
           int sceltaServizi = 0;
           String data = ""; 
+          java.util.Date d = null;
           String ub = "";
           int metri = 0;
           int anno = 0;
@@ -134,7 +115,7 @@ public class Agenzia {
 
           System.out.println("Inserimento annuncio di tipo" + tipologia);
 
-          try { System.out.println("Inserisci data: ");
+          try { System.out.println("Inserisci data [gg/mm/yyyy]: ");
                 data = input.nextLine();
                 System.out.println("Inserisci ubicazione: ");
                 ub = input.nextLine();
@@ -155,7 +136,10 @@ public class Agenzia {
                 } else if (sceltaServizi == 2) {
                   doppiS = false;
                 } 
-              
+                if ((sceltaServizi != 1) && (sceltaServizi != 2)) {
+                  throw new InputMismatchException();
+                }
+                throw new InputMismatchException();
                 System.out.println("Inserisci prezzo dell'immobile: ");
                 prez = input.nextInt();
                 System.out.println("Inserisci il piano dell'appartamento: ");
@@ -169,8 +153,10 @@ public class Agenzia {
                   garage = true;
                 } else if (sceltaGarage == 2){
                   garage = false;
+                } 
+                if ((sceltaGarage != 1) && (sceltaGarage != 2)){
+                throw new InputMismatchException();
                 }
-                throw new Exception(menu4);
                 System.out.println("Inserisci se l'immobile ha il riscaldamento autonomo:");
                 System.out.println(menu5);
                 sceltaRis = input.nextInt();
@@ -179,28 +165,34 @@ public class Agenzia {
                 } else if (sceltaGarage == 2){
                   riscaldamento = false;
                 } 
+                if ((sceltaRis != 1) && (sceltaRis != 2)) {
+                  throw new InputMismatchException();
+                }
                 } catch (InputMismatchException e){
                       System.out.println("Errore dato atteso");
                       input.next();
                       return;
-                } catch (IndexOutOfBoundsException e) {
-                         System.out.println("non è una stringa");
-                         input.next();
-                  return;
-                } catch (NumberFormatException e) {
-                      System.out.println("non è un numero");
-                }
+                } 
+                
+            try {
+              DateFormat formatoData = DateFormat.getDateInstance(DateFormat.SHORT);
+              // imposta che i calcoli di conversione della data siano rigorosi
+              formatoData.setLenient(false);
+              d = formatoData.parse(data);
+            } catch (ParseException e) {
+              System.out.println("Formato data non valido.");
+            }
 
-          Appartamenti app = new Appartamenti(data, ub, metri, anno, energia, stanze,doppiS,prez,tipologia,pianoA, pianoCond,garage, riscaldamento);
+          Appartamenti app = new Appartamenti(d, ub, metri, anno, energia, stanze,doppiS,prez,tipologia,pianoA, pianoCond, garage, riscaldamento);
           Lista.add(app);
-        
         }
 
-        public void aggiuntaVilletta(){
+        public void aggiuntaVilletta() throws IOException{
           Scanner input = new Scanner (System.in);
           String menu3 = "1. Dotato di doppi servizi.\n 2. Non dotato di doppi servizi";
           int sceltaServizi = 0;
           String data = "";
+          java.util.Date d = null;
           String ub = "";
           int metri = 0;
           int anno = 0;
@@ -212,19 +204,19 @@ public class Agenzia {
           int mGiardino = 0;
 
         try { System.out.println("Inserimento annuncio di tipo" + tipologia);
-              System.out.println("Inserisci data: \n");
+              System.out.println("Inserisci data [gg/mm/yyyy]: ");
               data = input.nextLine();
-              System.out.println("Inserisci ubicazione: \n");
+              System.out.println("Inserisci ubicazione: ");
               ub = input.nextLine();
-              System.out.println("Inserisci metratura: \n");
+              System.out.println("Inserisci metratura: ");
               metri = input.nextInt();
-              System.out.println("Inserisci anno di costruzione dell'immobile: \n");
+              System.out.println("Inserisci anno di costruzione dell'immobile: ");
               anno = input.nextInt();
-              System.out.println("Inserisci classe energetica: \n");
+              System.out.println("Inserisci classe energetica: ");
               energia = input.nextLine();
-              System.out.println("Inserisci il numero delle stanze: \n");
+              System.out.println("Inserisci il numero delle stanze: ");
               stanze = input.nextInt();
-              System.out.println("Inserisci se nell'immobile ci sono doppi servizi: \n");
+              System.out.println("Inserisci se nell'immobile ci sono doppi servizi: ");
               sceltaServizi = input.nextInt();
               System.out.println(menu3);
               if (sceltaServizi == 1){
@@ -232,9 +224,9 @@ public class Agenzia {
               } else if (sceltaServizi == 2) {
                 doppiS = false;
               } 
-              System.out.println("Inserisci prezzo dell'immobile: \n");
+              System.out.println("Inserisci prezzo dell'immobile: ");
               prez = input.nextInt();
-              System.out.println("Inserisci la metratura del giardino: \n");
+              System.out.println("Inserisci la metratura del giardino: ");
               mGiardino = input.nextInt();
             } catch(InputMismatchException e){
                     System.out.println("Errore dato atteso");
@@ -248,8 +240,16 @@ public class Agenzia {
                     System.out.println("non è un numero");
             }
        
-       
-        Villette villetta = new Villette(data,ub,metri,anno,energia,stanze,prez,mGiardino); 
+            try {
+              DateFormat formatoData = DateFormat.getDateInstance(DateFormat.SHORT);
+              // imposta che i calcoli di conversione della data siano rigorosi
+              formatoData.setLenient(false);
+              d = formatoData.parse(data);
+            } catch (ParseException e) {
+              System.out.println("Formato data non valido.");
+            }
+
+        Villette villetta = new Villette(d,ub,metri,anno,energia,stanze,doppiS,prez,tipologia,mGiardino); 
         Lista.add(villetta);
       } 
 }

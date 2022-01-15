@@ -1,12 +1,12 @@
+import java.sql.Date;
 
 public class Villette extends Annunci{
 	
 	private int dimensioneGiardino;
 	
-	public Villette (Date dataPubblicazione, String ubicazione, int superficie,int annoCostruzione,String classeEnergetica,int numeroStanze,boolean doppiServizi,int prezzo,int dimensioneGiardino) {
-		super(dataPubblicazione, ubicazione, superficie, annoCostruzione, classeEnergetica, numeroStanze, doppiServizi, prezzo);
-		this.dimensioneGiardino = dimensioneGiardino;
-		
+	public Villette (java.util.Date d, String ubicazione, int superficie,int annoCostruzione,String classeEnergetica,int numeroStanze,boolean doppiServizi,int prezzo,String tipologia,int dimensioneGiardino) {
+		super(d, ubicazione, superficie, annoCostruzione, classeEnergetica, numeroStanze, doppiServizi, prezzo, tipologia);
+		this.dimensioneGiardino = dimensioneGiardino;	
 	}
 
 	@Override
