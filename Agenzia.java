@@ -1,10 +1,10 @@
 import java.io.IOException;
 import java.util.*;
-import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 
 public class Agenzia {
+  static Vector<Annunci> Lista = new Vector<Annunci>();
 
 	public static void main(String[] args) throws IOException {
 		Scanner input = new Scanner(System.in);
@@ -13,8 +13,6 @@ public class Agenzia {
     String menu2 = "1. Aggiungi un appartamento.\n2. Aggiungi una villetta";
     int sceltaTipologia = 0;
     int scelta = 0;
-
-    Vector <Annunci> Lista = new Vector <Annunci> ();
          
 
         while (true) {
@@ -30,19 +28,25 @@ public class Agenzia {
                     sceltaTipologia = 0;
                 }
             }
-            while (scelta == 0);     
-         
+          
+            while (scelta == 0);
+            {
             switch (scelta) {
               case 1: {
-                System.out.println ("Aggiungere annuncio");
+                System.out.println("Aggiungere annuncio");
                 System.out.println(menu2);
                 sceltaTipologia = input.nextInt();
                 if (sceltaTipologia == 1) {
                   System.out.println("Aggiungere infomazioni relative all'appartamento");
+                  aggiuntaAppartamento();
                 } else if (sceltaTipologia == 2) {
                   System.out.println("Aggiungere infomazioni relative alla villetta");
-                } if ((sceltaTipologia != 1) && (sceltaTipologia != 2)){
+                  aggiuntaVilletta();
+                } else {
                   throw new InputMismatchException();
+                }
+                for (int i = 0; i < Lista.size(); i++ ){
+                    System.out.println(Lista.get(i).getCodiceAnnuncio());
                 }
                 break;
               }
@@ -84,7 +88,9 @@ public class Agenzia {
               } 
             }  
          }
+        }
       }
+      
     
         
 
@@ -92,7 +98,7 @@ public class Agenzia {
 //metodi ausiliari
         
 
-        public void  aggiuntaAppartamento() throws IOException{
+        public static void  aggiuntaAppartamento() throws IOException{
           Scanner input = new Scanner (System.in);
           String menu3 = "1. Dotato di doppi servizi.\n 2. Non dotato di doppi servizi";
           String menu4 = "1. Dotato di garage.\n 2. Non dotato di garage";
@@ -114,83 +120,80 @@ public class Agenzia {
           int pianoCond = 0;
           boolean garage = true;
           boolean riscaldamento = true;
-          
+        
 
-          System.out.println("Inserimento annuncio di tipo" + tipologia);
-
-          try { System.out.println("Inserisci data [gg/mm/yyyy]: ");
-                data = input.nextLine();
-                System.out.println("Inserisci ubicazione: ");
-                ub = input.nextLine();
-                System.out.println("Inserisci metratura: ");
-                metri = input.nextInt();
-                System.out.println("Inserisci anno di costruzione dell'immobile: ");
-                anno = input.nextInt();
-                System.out.println("Inserisci classe energetica: ");
-                energia = input.nextLine();
-                System.out.println("Inserisci il numero delle stanze: ");
-                stanze = input.nextInt();
-                System.out.println("Inserisci se nell'immobile ci sono doppi servizi: ");
-                
-                System.out.println(menu3);
-                sceltaServizi = input.nextInt();
-                if (sceltaServizi == 1){
-                  doppiS = true;
-                } else if (sceltaServizi == 2) {
-                  doppiS = false;
-                } 
-                if ((sceltaServizi != 1) && (sceltaServizi != 2)) {
-                  throw new InputMismatchException();
-                }
+          try {
+              System.out.println("Inserisci data [gg/mm/yyyy]: ");
+              data = input.nextLine();
+              try {
+                DateFormat formatoData = DateFormat.getDateInstance(DateFormat.SHORT);
+                // imposta che i calcoli di conversione della data siano rigorosi
+                formatoData.setLenient(false);
+                d = formatoData.parse(data);
+              } catch (ParseException e) {
+                System.out.println("Formato data non valido.");
+              }
+              System.out.println("Inserisci ubicazione: ");
+              ub = input.nextLine();
+              System.out.println("Inserisci metratura: ");
+              metri = input.nextInt();
+              System.out.println("Inserisci anno di costruzione dell'immobile: ");
+              anno = input.nextInt();
+              System.out.println("Inserisci classe energetica: ");
+              energia = input.nextLine();
+              System.out.println("Inserisci il numero delle stanze: ");
+              stanze = input.nextInt();
+              System.out.println("Inserisci se nell'immobile ci sono doppi servizi: ");
+              
+              System.out.println(menu3);
+              sceltaServizi = input.nextInt();
+              if (sceltaServizi == 1){
+                doppiS = true;
+              } else if (sceltaServizi == 2) {
+                doppiS = false;
+              } else {
                 throw new InputMismatchException();
-                System.out.println("Inserisci prezzo dell'immobile: ");
-                prez = input.nextInt();
-                System.out.println("Inserisci il piano dell'appartamento: ");
-                pianoA = input.nextInt();
-                System.out.println("Inserisci il numero dei piani presenti nel condominio: ");
-                pianoCond = input.nextInt();
-                System.out.println("Inserisci se l'immobile è dotato di garage: ");
-                System.out.println(menu4);
-                sceltaGarage = input.nextInt();
-                if (sceltaGarage == 1){
-                  garage = true;
-                } else if (sceltaGarage == 2){
-                  garage = false;
-                } 
-                if ((sceltaGarage != 1) && (sceltaGarage != 2)){
+              }
+              System.out.println("Inserisci prezzo dell'immobile: ");
+              prez = input.nextInt();
+              System.out.println("Inserisci il piano dell'appartamento: ");
+              pianoA = input.nextInt();
+              System.out.println("Inserisci il numero dei piani presenti nel condominio: ");
+              pianoCond = input.nextInt();
+              System.out.println("Inserisci se l'immobile è dotato di garage: ");
+              System.out.println(menu4);
+              sceltaGarage = input.nextInt();
+              if (sceltaGarage == 1){
+                garage = true;
+              } else if (sceltaGarage == 2){
+                garage = false;
+              } else{
+              throw new InputMismatchException();
+              }
+              System.out.println("Inserisci se l'immobile ha il riscaldamento autonomo:");
+              System.out.println(menu5);
+              sceltaRis = input.nextInt();
+              if (sceltaRis == 1){
+                riscaldamento = true;
+              } else if (sceltaGarage == 2){
+                riscaldamento = false;
+              } else {
                 throw new InputMismatchException();
-                }
-                System.out.println("Inserisci se l'immobile ha il riscaldamento autonomo:");
-                System.out.println(menu5);
-                sceltaRis = input.nextInt();
-                if (sceltaRis == 1){
-                  riscaldamento = true;
-                } else if (sceltaGarage == 2){
-                  riscaldamento = false;
-                } 
-                if ((sceltaRis != 1) && (sceltaRis != 2)) {
-                  throw new InputMismatchException();
-                }
-                } catch (InputMismatchException e){
-                      System.out.println("Errore dato atteso");
-                      input.next();
-                      return;
-                } 
-                
-            try {
-              DateFormat formatoData = DateFormat.getDateInstance(DateFormat.SHORT);
-              // imposta che i calcoli di conversione della data siano rigorosi
-              formatoData.setLenient(false);
-              d = formatoData.parse(data);
-            } catch (ParseException e) {
-              System.out.println("Formato data non valido.");
+              }
+            } 
+            catch (InputMismatchException e){
+                  System.out.println("Errore dato atteso");
+                  input.next();
+                  return;
             }
 
           Appartamenti app = new Appartamenti(d, ub, metri, anno, energia, stanze,doppiS,prez,tipologia,pianoA, pianoCond, garage, riscaldamento);
           Lista.add(app);
         }
 
-       public void aggiuntaVilletta() throws IOException{
+        /*aggiunge annuncio di tipo villeta al vettore
+        */
+       public static void aggiuntaVilletta() throws IOException{
           Scanner input = new Scanner (System.in);
           String menu3 = "1. Dotato di doppi servizi.\n 2. Non dotato di doppi servizi";
           int sceltaServizi = 0;
@@ -206,7 +209,7 @@ public class Agenzia {
           String tipologia = "Villetta"; 
           int mGiardino = 0;
 
-        try { System.out.println("Inserimento annuncio di tipo" + tipologia);
+        try { 
               System.out.println("Inserisci data [gg/mm/yyyy]: ");
               data = input.nextLine();
               System.out.println("Inserisci ubicazione: ");
@@ -226,7 +229,9 @@ public class Agenzia {
                 doppiS = true;
               } else if (sceltaServizi == 2) {
                 doppiS = false;
-              } 
+              }  else {
+
+              }
               System.out.println("Inserisci prezzo dell'immobile: ");
               prez = input.nextInt();
               System.out.println("Inserisci la metratura del giardino: ");

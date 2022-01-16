@@ -1,4 +1,4 @@
-import java.sql.Date;
+import java.util.*;
 
 public class Appartamenti extends Annunci {
 	
@@ -7,8 +7,8 @@ public class Appartamenti extends Annunci {
 	private boolean garage;
 	private boolean riscaldamento;
 	
-	public Appartamenti (java.util.Date d, String ubicazione, int superficie,int annoCostruzione,String classeEnergetica,int numeroStanze,boolean doppiServizi, int prezzo,String tipologia,int pianoAppartamento,int pianiCondominio, boolean garage, boolean riscaldamento){
-		 super(d, ubicazione, superficie, annoCostruzione, classeEnergetica, numeroStanze, doppiServizi, prezzo, tipologia);
+	public Appartamenti (Date data, String ubicazione, int superficie,int annoCostruzione,String classeEnergetica,int numeroStanze,boolean doppiServizi, int prezzo,String tipologia,int pianoAppartamento,int pianiCondominio, boolean garage, boolean riscaldamento){
+		 super(data, ubicazione, superficie, annoCostruzione, classeEnergetica, numeroStanze, doppiServizi, prezzo, tipologia);
 		 	this.pianoAppartamento = pianoAppartamento;
 	        this.pianiCondominio = pianiCondominio;
 	        this.garage = garage;

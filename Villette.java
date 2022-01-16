@@ -1,11 +1,11 @@
-import java.sql.Date;
+import java.util.*;
 
 public class Villette extends Annunci{
 	
 	private int dimensioneGiardino;
 	
-	public Villette (java.util.Date d, String ubicazione, int superficie,int annoCostruzione,String classeEnergetica,int numeroStanze,boolean doppiServizi,int prezzo,String tipologia,int dimensioneGiardino) {
-		super(d, ubicazione, superficie, annoCostruzione, classeEnergetica, numeroStanze, doppiServizi, prezzo, tipologia);
+	public Villette (Date data, String ubicazione, int superficie,int annoCostruzione,String classeEnergetica,int numeroStanze,boolean doppiServizi,int prezzo,String tipologia,int dimensioneGiardino) {
+		super(data, ubicazione, superficie, annoCostruzione, classeEnergetica, numeroStanze, doppiServizi, prezzo, tipologia);
 		this.dimensioneGiardino = dimensioneGiardino;	
 	}
 

@@ -1,7 +1,6 @@
-import java.sql.Date;
+import java.util.*;
 
 public class Annunci {
-	//TODO Cambiare tipo
 	private Date dataPubblicazione;
 	private String ubicazione;
 	private int superficie;
