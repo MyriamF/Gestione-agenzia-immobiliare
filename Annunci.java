@@ -36,9 +36,10 @@ public class Annunci {
 		return getTipologia() + "\n" + getDataPubblicazione() + "\n" + getSuperficie() + "\n" + getPrezzo();
 	}
 	public String stampaCompleta(){
-		return getCodiceAnnuncio() + "\n" + getDataPubblicazione() + "\n" + getUbicazione() + "\n" + getSuperficie() + "\n" 
+		return (
+		"Codice annuncio "+getCodiceAnnuncio() + "\n" + getDataPubblicazione() + "\n" + getUbicazione() + "\n" + getSuperficie() + "\n" 
 		+ getAnnoCostruzione() + "\n" + getClasseEnergetica() + "\n" + getNumeroStanze() + "\n" + getDoppiServizi()+ "\n"
-		+ getPrezzo() + "\n" + getTipologia();
+		+ getPrezzo() + "\n" + getTipologia());
 	}
 
 	public String getDataPubblicazione (){
