@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 
 public class Agenzia {
+  private static final DateFormat sdf = null;
   static Vector<Annunci> Lista = new Vector<Annunci>();
 
 	public static void main(String[] args) throws IOException {
@@ -62,6 +63,7 @@ public class Agenzia {
               }
               case 3: {
                 System.out.println ("Elenco sintetico per data"); 
+                elencoPerData();
                 break;
               }
               case 4: {
@@ -224,18 +226,27 @@ public class Agenzia {
          }
         }
 
-        // stampa della lista di annunci
-        public static void stampa() {
+        // stampa completa della lista di annunci
+        public static void stampaCompleta() {
           for ( int i = 0; i< Lista.size(); i++){
               System.out.println(Lista.get(i).stampaCompleta());
           }
         }
 
+        // stampa sintetica della lista di annunci
+        public static void stampaSintetica() {
+          for (int i = 0; i < Lista.size(); i++) {
+            System.out.println(Lista.get(i).stampaSintetica());
+          }
+        }
+        
+        
+        //metodo eliminazione annuncio 
         public static void eliminaAnnuncio() throws IOException {
           Scanner input = new Scanner(System.in);
           int codice = 0;
           boolean presente = false;
-          stampa();
+          stampaCompleta();
           System.out.println("Inserisci il codice dell'annnuncio da eliminare");
           codice = input.nextInt();
           
@@ -250,6 +261,22 @@ public class Agenzia {
               System.out.println("L'annuncio non e' presente");
           } else {
             System.out.println("Eliminazione andata a buon fine");
+          }
+        }
+
+        public static void elencoPerData() {
+
+          for (int i = 0; i < Lista.size(); i++) {
+              for (int j = 0; j < Lista.size(); j++){
+            if((Lista.get(i).getDataPubblicazione().before(Lista.get(j).getDataPubblicazione()))){
+                Lista.get(j).stampaSintetica(); //stampa il più recente
+                Lista.get(i).stampaSintetica();// stampa il meno recente
+              } else {
+                Lista.get(i).stampaSintetica();
+                Lista.get(j).stampaSintetica();
+              }
+              }
+            }
           }
         }
 

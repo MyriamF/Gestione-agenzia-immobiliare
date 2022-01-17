@@ -42,8 +42,8 @@ public class Annunci {
 		+ getPrezzo() + "\n" + getTipologia());
 	}
 
-	public String getDataPubblicazione (){
-	    return dataPubblicazione.toString();
+	public Date getDataPubblicazione (){
+	    return dataPubblicazione;
 	}
 	    
 	public String getUbicazione (){
