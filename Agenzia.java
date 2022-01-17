@@ -264,12 +264,22 @@ public class Agenzia {
           }
         }
 
-        public static void elencoPerData() {
+        public static void elencoPerData(Object o1, Object o2) {
+          Collections.sort(Lista<Annunci>);
+            /*Date d1 = ((Annunci) o1).getDataPubblicazione();
+            Date d2 = ((Annunci) o2).getDataPubblicazione();
+            Date min = null;
+            Date max = null;
 
-            java.util.Date d1 = null;
-            java.util.Date d2 = null;
-
-          for (int i = 0; i < Lista.size(); i++) {
+              if (d1.before(d2)) {
+                  d1 = min;
+              } else {
+                  d1 = max;
+              }
+            for (int i = 1; i < Lista.size(); i++) {
+              if (Lista.get(i).getDataPubblicazione().before(min)){
+                
+              }*/
              
               }
             }
