@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Annunci  implements Comparator{
+public class Annunci  implements Comparator <Annunci>{
 	private Date dataPubblicazione;
 	private String ubicazione;
 	private int superficie;
@@ -116,7 +116,7 @@ public class Annunci  implements Comparator{
 
 
 	@Override
-	public int compare(Object o1, Object o2) {
+	public int compare(Annunci o1, Annunci o2) {
 		Date d1 = ((Annunci) o1).getDataPubblicazione();
 		Date d2 = ((Annunci)o2).getDataPubblicazione();
 
