@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Annunci {
+public class Annunci  implements Comparator{
 	private Date dataPubblicazione;
 	private String ubicazione;
 	private int superficie;
@@ -112,6 +112,21 @@ public class Annunci {
 	    
 	public void setPrezzo(int prezzo) {
 	    this.prezzo = prezzo;
+	}
+
+
+	@Override
+	public int compare(Object o1, Object o2) {
+		Date d1 = ((Annunci) o1).getDataPubblicazione();
+		Date d2 = ((Annunci)o2).getDataPubblicazione();
+
+		if (d1.before(d2)){
+			return 1;
+		} else if (d1.after(d2){
+			return -1;
+		} else {
+			return 0;
+		}
 	}
 
 }

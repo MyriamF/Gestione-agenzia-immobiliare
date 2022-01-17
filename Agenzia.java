@@ -266,15 +266,11 @@ public class Agenzia {
 
         public static void elencoPerData() {
 
+            java.util.Date d1 = null;
+            java.util.Date d2 = null;
+
           for (int i = 0; i < Lista.size(); i++) {
-              for (int j = 0; j < Lista.size(); j++){
-            if((Lista.get(i).getDataPubblicazione().before(Lista.get(j).getDataPubblicazione()))){
-                Lista.get(j).stampaSintetica(); //stampa il più recente
-                Lista.get(i).stampaSintetica();// stampa il meno recente
-              } else {
-                Lista.get(i).stampaSintetica();
-                Lista.get(j).stampaSintetica();
-              }
+             
               }
             }
           }
