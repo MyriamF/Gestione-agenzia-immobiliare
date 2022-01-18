@@ -265,15 +265,19 @@ public class Agenzia {
         }
 
         public static void elencoPerData() {
-          Comparator Annunci comparator = new AnnunciComparator ();
+          Comparator <Annunci> comparator = new AnnunciComparator ();
 
           Collections.sort(Lista, comparator);
            
-             
-              }
-            }
+          for (int i = 0; i<Lista.size(); i++){
+              System.out.println(Lista.get(i).stampaSintetica());
           }
-        }
+          
+             
+  }
+            
+          
+        
 
         
 }
