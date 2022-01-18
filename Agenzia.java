@@ -271,6 +271,7 @@ public class Agenzia {
            
           for (int i = 0; i<Lista.size(); i++){
               System.out.println(Lista.get(i).stampaSintetica());
+        
           }
           
              
