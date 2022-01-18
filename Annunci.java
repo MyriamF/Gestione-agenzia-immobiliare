@@ -33,13 +33,13 @@ public class Annunci {
 
 
 	public String stampaSintetica () {
-		return getTipologia() + "\n" + getDataPubblicazione() + "\n" + getSuperficie() + "\n" + getPrezzo();
+		return "Tipologia:" + getTipologia() + "\n" + "Data:" + getDataPubblicazione() + "\n" + "Superficie:" + getSuperficie() + "\n" + "Prezzo:" + getPrezzo();
 	}
 	public String stampaCompleta(){
 		return (
-		"Codice annuncio "+getCodiceAnnuncio() + "\n" + getDataPubblicazione() + "\n" + getUbicazione() + "\n" + getSuperficie() + "\n" 
-		+ getAnnoCostruzione() + "\n" + getClasseEnergetica() + "\n" + getNumeroStanze() + "\n" + getDoppiServizi()+ "\n"
-		+ getPrezzo() + "\n" + getTipologia());
+		"Codice annuncio:"+getCodiceAnnuncio() + "\n" + "Data:" + getDataPubblicazione() + "\n" + "Ubicazione:" + getUbicazione() + "\n" + "Superficie:" + getSuperficie() + "\n" 
+		+ "Prezzo:" + getAnnoCostruzione() + "\n" + "Classe Energetica:" + getClasseEnergetica() + "\n" + "Numero stanze:" + getNumeroStanze() + "\n" + "Presenza di dippi servizi:" + getDoppiServizi()+ "\n"
+		+ "Prezzo:"+ getPrezzo() + "\n" + "Tipologia:" + getTipologia());
 	}
 
 	public Date getDataPubblicazione (){
