@@ -1,0 +1,20 @@
+import java.util.*;
+
+public class AnnunciComparator implements Comparator <Annunci> {
+    
+            public int compare (Annunci a1, Annunci a2){
+                Date d1 = ((Annunci) a1).getDataPubblicazione();
+                Date d2 = ((Annunci) a2).getDataPubblicazione();
+            
+        
+                if (d1.before(d2)){
+                 return 1;
+                 } else if (d1.after(d2)){
+                 return -1;
+                 } else {
+                 return 0;
+    }
+}
+}
+
+
