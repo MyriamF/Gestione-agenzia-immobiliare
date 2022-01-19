@@ -279,23 +279,24 @@ public class Agenzia {
           Scanner input = new Scanner(System.in);
           int codice = 0;
           boolean presente = false;
-          stampaSintetica();
+          
+          for (int i = 0; i < Lista.size(); i++){
+          Lista.get(i).stampaSintetica(); 
+          }
+
           System.out.println("Inserisci il codice dell'annuncio da visualizzare in dettaglio:");
-          codice = input.nextInt();  
+          codice = input.nextInt(); 
 
           for ( int i = 0; i < Lista.size(); i++){
             if (codice == Lista.get(i).getCodiceAnnuncio()) {
-              
+              Lista.get(i).stampaCompleta();
               presente = true;
               break;
             }
           }
             if (!presente){
               System.out.println("L'annuncio non e' presente");
-           } else {
-            System.out.println("Dettagli annuncio");
-            stampaCompleta();
-          }
+           } 
         
       }
     }
