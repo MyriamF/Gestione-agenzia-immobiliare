@@ -283,7 +283,6 @@ public class Agenzia {
             stampaInteroSintetica();
             System.out.println("Inserisci il codice dell'annuncio da visualizzare in dettaglio:");
             id = input.nextInt(); 
-            System.out.println("codice " +id);
 
             for (int i = 0; i < Lista.size(); i++) {
               if ( Lista.get(i).getCodiceAnnuncio() == id) {
