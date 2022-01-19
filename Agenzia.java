@@ -101,7 +101,7 @@ public class Agenzia {
   }
       
 
-//metodi ausiliari
+        //metodi ausiliari
         public static void aggiuntaAnnuncio(int tipo) throws IOException {
           Scanner input = new Scanner(System.in);
           String menu3 = "1. Dotato di doppi servizi.\n 2. Non dotato di doppi servizi";
@@ -280,21 +280,23 @@ public class Agenzia {
           int codice = 0;
           boolean presente = false;
           stampaSintetica();
-          System.out.println("Inserisci il codice dell'annnuncio da visualizzare in dettaglio:");
+          System.out.println("Inserisci il codice dell'annuncio da visualizzare in dettaglio:");
           codice = input.nextInt();  
 
           for ( int i = 0; i < Lista.size(); i++){
             if (codice == Lista.get(i).getCodiceAnnuncio()) {
-              Lista.get(i);
+              
               presente = true;
               break;
             }
+          }
             if (!presente){
               System.out.println("L'annuncio non e' presente");
            } else {
-            System.out.println("Dettagli annuncio:");
+            System.out.println("Dettagli annuncio");
+            stampaCompleta();
           }
-        }
+        
       }
     }
              
