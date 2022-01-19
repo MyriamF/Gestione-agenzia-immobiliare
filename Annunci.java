@@ -33,7 +33,7 @@ public class Annunci {
 
 
 	public String stampaSintetica () {
-		return "Tipologia:" + getTipologia() + "\n" + "Data:" + getDataPubblicazione() + "\n" + "Superficie:" + getSuperficie() + "\n" + "Prezzo:" + getPrezzo();
+		return "Codice annuncio:"+ getCodiceAnnuncio() + "\n" + "Tipologia:" + getTipologia() + "\n" + "Data:" + getDataPubblicazione() + "\n" + "Superficie:" + getSuperficie() + "\n" + "Prezzo:" + getPrezzo();
 	}
 	public String stampaCompleta(){
 		return (
