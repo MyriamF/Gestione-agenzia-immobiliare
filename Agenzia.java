@@ -285,7 +285,7 @@ public class Agenzia {
 
           for ( int i = 0; i < Lista.size(); i++){
             if (codice == Lista.get(i).getCodiceAnnuncio()) {
-              stampaCompleta();
+              Lista.get(i);
               presente = true;
               break;
             }
