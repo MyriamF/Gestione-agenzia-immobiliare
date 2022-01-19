@@ -228,14 +228,14 @@ public class Agenzia {
         }
 
         // stampa completa della lista di annunci
-        public static void stampaCompleta() {
+        public static void stampaInteroCompleta() {
           for ( int i = 0; i< Lista.size(); i++){
               System.out.println(Lista.get(i).stampaCompleta());
           }
         }
 
         // stampa sintetica della lista di annunci
-        public static void stampaSintetica() {
+        public static void stampaInteroSintetica() {
           for (int i = 0; i < Lista.size(); i++) {
             System.out.println(Lista.get(i).stampaSintetica());
           }
@@ -247,7 +247,7 @@ public class Agenzia {
           Scanner input = new Scanner(System.in);
           int codice = 0;
           boolean presente = false;
-          stampaCompleta();
+          stampaInteroCompleta();
           System.out.println("Inserisci il codice dell'annnuncio da eliminare:");
           codice = input.nextInt();
           
@@ -262,6 +262,7 @@ public class Agenzia {
               System.out.println("L'annuncio non e' presente");
           } else {
             System.out.println("Eliminazione andata a buon fine");
+            input.close();
           }
         }
 
@@ -276,29 +277,28 @@ public class Agenzia {
         }
 
         public static void visualizzaDettagli() {
-          Scanner input = new Scanner(System.in);
-          int codice = 0;
-          boolean presente = false;
-          
-          for (int i = 0; i < Lista.size(); i++){
-          Lista.get(i).stampaSintetica(); 
-          }
+          Scanner input = new Scanner(System.in); 
+            int id= 0;
+            boolean presente = false;
+            stampaInteroSintetica();
+            System.out.println("Inserisci il codice dell'annuncio da visualizzare in dettaglio:");
+            id = input.nextInt(); 
+            System.out.println("codice " +id);
 
-          System.out.println("Inserisci il codice dell'annuncio da visualizzare in dettaglio:");
-          codice = input.nextInt(); 
-
-          for ( int i = 0; i < Lista.size(); i++){
-            if (codice == Lista.get(i).getCodiceAnnuncio()) {
-              Lista.get(i).stampaCompleta();
-              presente = true;
-              break;
+            for (int i = 0; i < Lista.size(); i++) {
+              if ( Lista.get(i).getCodiceAnnuncio() == id) {
+                  System.out.println(Lista.get(i).stampaCompleta());
+                  presente = true;   
+                  break;
+              }
             }
+              if (!presente){
+                System.out.println("L'annuncio non e' presente");
+                input.close();
+             }
           }
-            if (!presente){
-              System.out.println("L'annuncio non e' presente");
-           } 
         
-      }
+      
     }
              
 
