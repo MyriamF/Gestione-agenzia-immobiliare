@@ -68,6 +68,7 @@ public class Agenzia {
               }
               case 4: {
                 System.out.println ("Visualizza dettagli"); 
+                visualizzaDettagli();
                 break;
               }
               case 5:{
@@ -247,7 +248,7 @@ public class Agenzia {
           int codice = 0;
           boolean presente = false;
           stampaCompleta();
-          System.out.println("Inserisci il codice dell'annnuncio da eliminare");
+          System.out.println("Inserisci il codice dell'annnuncio da eliminare:");
           codice = input.nextInt();
           
           for ( int i = 0; i < Lista.size(); i++){
@@ -266,17 +267,37 @@ public class Agenzia {
 
         public static void elencoPerData() {
           Comparator <Annunci> comparator = new AnnunciComparator ();
-
-          Collections.sort(Lista, comparator);
+           Collections.sort(Lista, comparator);
            
           for (int i = 0; i<Lista.size(); i++){
               System.out.println(Lista.get(i).stampaSintetica());
         
           }
-          
-        
+        }
+
+        public static void visualizzaDettagli() {
+          Scanner input = new Scanner(System.in);
+          int codice = 0;
+          boolean presente = false;
+          stampaSintetica();
+          System.out.println("Inserisci il codice dell'annnuncio da visualizzare in dettaglio:");
+          codice = input.nextInt();  
+
+          for ( int i = 0; i < Lista.size(); i++){
+            if (codice == Lista.get(i).getCodiceAnnuncio()) {
+              stampaCompleta();
+              presente = true;
+              break;
+            }
+            if (!presente){
+              System.out.println("L'annuncio non e' presente");
+           } else {
+            System.out.println("Dettagli annuncio:");
+          }
+        }
       }
+    }
              
-}
+
 
 
