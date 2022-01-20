@@ -322,16 +322,17 @@ public class Agenzia {
               } 
              catch (InputMismatchException e){
               System.out.println ("Errore dato atteso");
-              input.close();
               input.next(); 
+              input.close();
               return;
               }
 
-            for (int i = 0; i < Lista.size(); i++){
-              if(Lista.get(i).getTipologia().equals(tipologia)){
-                System.out.println(Lista.get(i).stampaSintetica());
+              for (int i = 0; i < Lista.size(); i++){ 
+                if(Lista.get(i).getTipologia().equals(tipologia)){
+                  System.out.println(Lista.get(i).stampaSintetica());
               }
             }
+             
         }   
     }
              
