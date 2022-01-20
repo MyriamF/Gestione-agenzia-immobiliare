@@ -167,7 +167,7 @@ public class Agenzia {
            int sceltaRis = 0;
            int sceltaGarage = 0;
 
-           String tipologia = "appartamento";
+           String tipologia = "Appartamento";
            int pianoA = 0;
            int pianoCond = 0;
            boolean garage = true;
@@ -304,23 +304,24 @@ public class Agenzia {
           int num = 0;
           String tipologia = "";
           System.out.println(menu6);
-          
-          System.out.println("Inserire la tipologia di annunci da visualizzare:");
-          num = input.nextInt();
-            
-          try {
-               if (num == 1){
-                tipologia.equals("Appartamenti");
+             
+          try { 
+                System.out.println("Inserire la tipologia di annunci da visualizzare:");
+                num = input.nextInt();
+               
+                if (num == 1){
+                tipologia.equals("Appartamento");
+                
               } else if (num == 2) {
-                tipologia.equals("Villette");
+                tipologia.equals("Villetta");
               } else {
                 throw new InputMismatchException();
               }
-           
+              
               
               } 
              catch (InputMismatchException e){
-              System.out.println("Errore dato atteso");
+              System.out.println ("Errore dato atteso");
               input.close();
               input.next(); 
               return;
@@ -329,7 +330,6 @@ public class Agenzia {
             for (int i = 0; i < Lista.size(); i++){
               if(Lista.get(i).getTipologia().equals(tipologia)){
                 System.out.println(Lista.get(i).stampaSintetica());
-                break;
               }
             }
         }   
