@@ -73,6 +73,7 @@ public class Agenzia {
               }
               case 5:{
                 System.out.println ("Elenco sintetico per tipo"); 
+                elencoTipo();
                 break;
               }
               case 6: {
@@ -297,7 +298,41 @@ public class Agenzia {
              }
           }
         
-      
+        public static void elencoTipo () throws IOException{
+          Scanner input = new Scanner (System.in);
+          String menu6 = "1.Appartamenti \n2.Villette";
+          int num = 0;
+          String tipologia = "";
+          System.out.println(menu6);
+          
+          System.out.println("Inserire la tipologia di annunci da visualizzare:");
+          num = input.nextInt();
+            
+          try {
+               if (num == 1){
+                tipologia.equals("Appartamenti");
+              } else if (num == 2) {
+                tipologia.equals("Villette");
+              } else {
+                throw new InputMismatchException();
+              }
+           
+              
+              } 
+             catch (InputMismatchException e){
+              System.out.println("Errore dato atteso");
+              input.close();
+              input.next(); 
+              return;
+              }
+
+            for (int i = 0; i < Lista.size(); i++){
+              if(Lista.get(i).getTipologia().equals(tipologia)){
+                System.out.println(Lista.get(i).stampaSintetica());
+                break;
+              }
+            }
+        }   
     }
              
 
