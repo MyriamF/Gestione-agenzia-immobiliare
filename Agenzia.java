@@ -298,7 +298,7 @@ public class Agenzia {
              }
           }
         
-        public static void elencoTipo () throws IOException{
+        public static void elencoTipo () {
           Scanner input = new Scanner (System.in);
           String menu6 = "1.Appartamenti \n2.Villette";
           int num = 0;
@@ -332,7 +332,7 @@ public class Agenzia {
                   System.out.println(Lista.get(i).stampaSintetica());
               }
             }
-             
+             input.close();
         }   
     }
              
