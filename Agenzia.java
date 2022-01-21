@@ -357,13 +357,13 @@ public class Agenzia {
               } else if (max > Lista.get(i).getPrezzo()){
                 eccessoMax = true;
               }
+            }
 
               if (eccessoMin){
                 System.out.println("Il prezzo inserito è troppo basso");
               } else if (eccessoMax){
                 System.out.println("Il prezzo inserito è troppo alto");
               }
-            }
           }
           catch (InputMismatchException e){
               System.out.println ("Errore dato atteso");
