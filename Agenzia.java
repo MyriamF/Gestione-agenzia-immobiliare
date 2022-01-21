@@ -338,8 +338,8 @@ public class Agenzia {
         public static void filtroPrezzo(Scanner input) throws InputMismatchException{
           int min = 0;
           int max = 0;
-          boolean eccessoMin = true;
-          boolean eccessoMax = true;
+          boolean eccessoMin = false;
+          boolean eccessoMax = false;
 
           System.out.println("Inserisci il range di prezzo: ");
 
@@ -359,9 +359,9 @@ public class Agenzia {
               }
             }
 
-              if (eccessoMin){
+              if (!eccessoMin){
                 System.out.println("Il prezzo inserito è troppo basso");
-              } else if (eccessoMax){
+              } else if (!eccessoMax){
                 System.out.println("Il prezzo inserito è troppo alto");
               }
           }
