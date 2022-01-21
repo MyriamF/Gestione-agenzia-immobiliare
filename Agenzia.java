@@ -78,7 +78,7 @@ public class Agenzia {
               }
               case 6: {
                 System.out.println ("Filtro prezzo"); 
-                filtroPrezo(input);
+                filtroPrezzo(input);
                 break;
               }
               case 7: {
