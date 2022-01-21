@@ -38,9 +38,9 @@ public class Agenzia {
                 try {
                   sceltaTipologia = input.nextInt();
                   if (sceltaTipologia == 1) {
-                    aggiuntaAnnuncio(1);
+                    aggiuntaAnnuncio(1,input);
                   } else if (sceltaTipologia == 2) {
-                    aggiuntaAnnuncio(2);
+                    aggiuntaAnnuncio(2, input);
                   } else {
                     System.out.println("Errore dato atteso");
                   }
@@ -57,7 +57,7 @@ public class Agenzia {
                 if (Lista.isEmpty()) {
                   System.out.println("Il vettore e' vuoto");
                 } else {
-                  eliminaAnnuncio();
+                  eliminaAnnuncio(input);
                 }
                 break;
               }
@@ -68,12 +68,12 @@ public class Agenzia {
               }
               case 4: {
                 System.out.println ("Visualizza dettagli"); 
-                visualizzaDettagli();
+                visualizzaDettagli(input);
                 break;
               }
               case 5:{
                 System.out.println ("Elenco sintetico per tipo"); 
-                elencoTipo();
+                elencoTipo(input);
                 break;
               }
               case 6: {
@@ -103,8 +103,7 @@ public class Agenzia {
       
 
         //metodi ausiliari
-        public static void aggiuntaAnnuncio(int tipo) throws IOException {
-          Scanner input = new Scanner(System.in);
+        public static void aggiuntaAnnuncio(int tipo, Scanner input) throws InputMismatchException {
           String menu3 = "1. Dotato di doppi servizi.\n 2. Non dotato di doppi servizi";
           int sceltaServizi = 0;
           String data = "";
@@ -244,8 +243,7 @@ public class Agenzia {
         
         
         //metodo eliminazione annuncio 
-        public static void eliminaAnnuncio() throws IOException {
-          Scanner input = new Scanner(System.in);
+        public static void eliminaAnnuncio(Scanner input) {
           int codice = 0;
           boolean presente = false;
           stampaInteroCompleta();
@@ -263,7 +261,7 @@ public class Agenzia {
               System.out.println("L'annuncio non e' presente");
           } else {
             System.out.println("Eliminazione andata a buon fine");
-            input.close();
+           
           }
         }
 
@@ -277,53 +275,56 @@ public class Agenzia {
           }
         }
 
-        public static void visualizzaDettagli() {
-          Scanner input = new Scanner(System.in); 
+        public static void visualizzaDettagli(Scanner input) {
             int id= 0;
             boolean presente = false;
             stampaInteroSintetica();
             System.out.println("Inserisci il codice dell'annuncio da visualizzare in dettaglio:");
-            id = input.nextInt(); 
+            
+            try {
+               id = input.nextInt(); 
 
             for (int i = 0; i < Lista.size(); i++) {
               if ( Lista.get(i).getCodiceAnnuncio() == id) {
                   System.out.println(Lista.get(i).stampaCompleta());
                   presente = true;   
                   break;
-              }
             }
               if (!presente){
                 System.out.println("L'annuncio non e' presente");
-                input.close();
+               
+              }
              }
-          }
+           } 
+             catch (InputMismatchException e) {
+                System.out.println("Errore dato atteso");
+               input.next();
+             }
+           }
+          
         
-        public static void elencoTipo () {
-          Scanner input = new Scanner (System.in);
+        public static void elencoTipo (Scanner input) throws InputMismatchException {
           String menu6 = "1.Appartamenti \n2.Villette";
           int num = 0;
           String tipologia = "";
           System.out.println(menu6);
-             
-          try { 
-                System.out.println("Inserire la tipologia di annunci da visualizzare:");
+
+          System.out.println("Inserire la tipologia di annunci da visualizzare:");
+             try { 
                 num = input.nextInt();
-               
                 if (num == 1){
                 tipologia.equals("Appartamento");
-                
               } else if (num == 2) {
                 tipologia.equals("Villetta");
               } else {
+               
                 throw new InputMismatchException();
-              }
-              
-              
               } 
-             catch (InputMismatchException e){
+            }
+             catch (InputMismatchException e) {
               System.out.println ("Errore dato atteso");
               input.next(); 
-              input.close();
+             
               return;
               }
 
@@ -332,7 +333,7 @@ public class Agenzia {
                   System.out.println(Lista.get(i).stampaSintetica());
               }
             }
-             input.close();
+            
         }   
     }
              
