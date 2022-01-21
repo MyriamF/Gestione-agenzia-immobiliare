@@ -260,8 +260,7 @@ public class Agenzia {
           if (!presente){
               System.out.println("L'annuncio non e' presente");
           } else {
-            System.out.println("Eliminazione andata a buon fine");
-           
+            System.out.println("Eliminazione andata a buon fine");    
           }
         }
 
@@ -317,14 +316,12 @@ public class Agenzia {
               } else if (num == 2) {
                 tipologia.equals("Villetta");
               } else {
-               
                 throw new InputMismatchException();
               } 
             }
              catch (InputMismatchException e) {
               System.out.println ("Errore dato atteso");
               input.next(); 
-             
               return;
               }
 
@@ -332,9 +329,47 @@ public class Agenzia {
                 if(Lista.get(i).getTipologia().equals(tipologia)){
                   System.out.println(Lista.get(i).stampaSintetica());
               }
+           }     
+        }  
+        
+        
+
+        public static void elencoPrezzo(Scanner input) throws InputMismatchException{
+          int min = 0;
+          int max = 0;
+          boolean eccessoMin = true;
+          boolean eccessoMax = true;
+
+          System.out.println("Inserisci il range di prezzo: ");
+
+          try{
+            min = input.nextInt();
+            max = input.nextInt();
+
+            for(int i = 0; i < Lista.size(); i++){
+              if ((min>= Lista.get(i).getPrezzo() && (max <= Lista.get(i).getPrezzo()))){
+                Lista.get(i).stampaSintetica();
+              }
+
+              if (min < Lista.get(i).getPrezzo()){
+                eccessoMin = true;
+              } else if (max > Lista.get(i).getPrezzo()){
+                eccessoMax = true;
+              }
+
+              if (eccessoMin){
+                System.out.println("Il prezzo inserito è troppo basso");
+              } else if (eccessoMax){
+                System.out.println("Il prezzo inserito è troppo alto");
+              }
             }
-            
-        }   
+          }
+          catch (InputMismatchException e){
+              System.out.println ("Errore dato atteso");
+              input.next(); 
+              return;
+          }
+        }
     }
              
 
