@@ -78,6 +78,7 @@ public class Agenzia {
               }
               case 6: {
                 System.out.println ("Filtro prezzo"); 
+                filtroPrezo(input);
                 break;
               }
               case 7: {
@@ -334,7 +335,7 @@ public class Agenzia {
         
         
 
-        public static void elencoPrezzo(Scanner input) throws InputMismatchException{
+        public static void filtroPrezzo(Scanner input) throws InputMismatchException{
           int min = 0;
           int max = 0;
           boolean eccessoMin = true;
