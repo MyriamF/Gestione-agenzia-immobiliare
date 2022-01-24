@@ -1,4 +1,4 @@
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -38,9 +38,9 @@ public class Agenzia {
                 try {
                   sceltaTipologia = input.nextInt();
                   if (sceltaTipologia == 1) {
-                    aggiuntaAnnuncio(1,input);
+                    aggiuntaAnnuncio(input,1);
                   } else if (sceltaTipologia == 2) {
-                    aggiuntaAnnuncio(2, input);
+                    aggiuntaAnnuncio(input,2);
                   } else {
                     System.out.println("Errore dato atteso");
                   }
@@ -83,6 +83,7 @@ public class Agenzia {
               }
               case 7: {
                 System.out.println ("Salva"); 
+                salva(Lista);
                 break;
               }
               case 8: {
@@ -104,7 +105,7 @@ public class Agenzia {
       
 
         //metodi ausiliari
-        public static void aggiuntaAnnuncio(int tipo, Scanner input) throws InputMismatchException {
+        public static void aggiuntaAnnuncio(Scanner input,int tipo) throws InputMismatchException {
           String menu3 = "1. Dotato di doppi servizi.\n 2. Non dotato di doppi servizi";
           int sceltaServizi = 0;
           String data = "";
@@ -364,14 +365,27 @@ public class Agenzia {
               } else if (!eccessoMax){
                 System.out.println("Il prezzo inserito è troppo alto");
               }
-          }
+            }
           catch (InputMismatchException e){
               System.out.println ("Errore dato atteso");
               input.next(); 
               return;
           }
         }
+
+           private static void salva(Vector <Annunci> Lista) {
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("")));
+            out.writeObject(Lista);
+            out.close();
+            System.out.println("Dati salvati");
+        } catch (IOException e) {
+            System.out.println("Errore");
+            System.out.println(e);
+        }
     }
+}
+}
              
 
 

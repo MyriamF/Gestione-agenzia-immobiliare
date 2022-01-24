@@ -1,6 +1,7 @@
+import java.io.*;
 import java.util.*;
 
-public class Annunci {
+public class Annunci implements Serializable{
 	private Date dataPubblicazione;
 	private String ubicazione;
 	private int superficie;
@@ -15,6 +16,7 @@ public class Annunci {
 	
 	//Codice progressivo dell'annuncio
 	static int codice = 1;
+	static final long serialVersionUID = 1;
 
 	
 	public Annunci(Date dataPubblicazione, String ubicazione, int superficie, int annoCostruzione, String classeEnergetica, int numeroStanze, boolean doppiServizi,int prezzo,String tipologia) {
