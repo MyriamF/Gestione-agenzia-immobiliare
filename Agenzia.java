@@ -88,6 +88,7 @@ public class Agenzia {
               }
               case 8: {
                 System.out.println ("Carica"); 
+                caricaFile(Lista);
                 break;
               }
               case 9: {
@@ -375,7 +376,7 @@ public class Agenzia {
 
            private static void salva(Vector <Annunci> Lista) {
         try {
-            ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("")));
+            ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("salva.dat")));
             out.writeObject(Lista);
             out.close();
             System.out.println("Dati salvati");
@@ -383,6 +384,21 @@ public class Agenzia {
             System.out.println("Errore");
             System.out.println(e);
         }
+    }
+
+      private static Vector <Annunci> caricaFile(Vector<Annunci> Lista) {
+        try {
+            ObjectInputStream inputFile = new ObjectInputStream(new BufferedInputStream(new FileInputStream("salva.dat")));
+            Lista = (Vector<Annunci>) inputFile.readObject();
+            inputFile.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File non esistente");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Errore lettura file");
+        } catch (IOException e) {
+            System.out.println("Errore caricamento/salvataggio");
+        }
+        return Lista;
     }
 }
 }
