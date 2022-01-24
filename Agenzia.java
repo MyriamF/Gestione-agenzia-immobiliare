@@ -386,7 +386,7 @@ public class Agenzia {
         }
     }
 
-      public static Vector <Annunci> caricaFile(Vector<Annunci> Lista) {
+      public static Vector <Annunci> caricaFile(Vector <Annunci> Lista) {
         try {
             ObjectInputStream inputFile = new ObjectInputStream(new BufferedInputStream(new FileInputStream("salva.dat")));
             Lista = (Vector<Annunci>) inputFile.readObject();
