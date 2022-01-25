@@ -374,7 +374,7 @@ public class Agenzia {
           }
         }
 
-           private static void salva(Vector <Annunci> Lista) {
+           public static void salva(Vector <Annunci> Lista) {
         try {
             ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("salva.dat")));
             out.writeObject(Lista);
@@ -386,19 +386,23 @@ public class Agenzia {
         }
     }
 
-      public static Vector <Annunci> caricaFile(Vector <Annunci> Lista) {
+    @SuppressWarnings("unchecked")
+      public static void caricaFile(Vector <Annunci> Lista) {
         try {
             ObjectInputStream inputFile = new ObjectInputStream(new BufferedInputStream(new FileInputStream("salva.dat")));
             Lista = (Vector<Annunci>) inputFile.readObject();
             inputFile.close();
+            System.out.println("Carica file completato");
         } catch (FileNotFoundException e) {
             System.out.println("File non esistente");
         } catch (ClassNotFoundException e) {
             System.out.println("Errore lettura file");
         } catch (IOException e) {
             System.out.println("Errore caricamento/salvataggio");
+        } catch (ClassCastException e){
+          System.out.println("errore cast");
         }
-        return Lista;
+      
     }
 }
 
