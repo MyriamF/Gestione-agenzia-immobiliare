@@ -43,13 +43,13 @@ public class Agenzia {
                     aggiuntaAnnuncio(input,2);
                   } else {
                     System.out.println("Errore dato atteso");
-                  }
+                  } 
+                  System.out.println("Annuncio aggiunto correttamente");
                 } 
                 catch(InputMismatchException e) {
                   System.out.println("Errore dato atteso");
                   input.next();
                 } 
-                System.out.println("Annuncio aggiunto correttamente");
                 break;
               }
               case 2: {
@@ -122,7 +122,7 @@ public class Agenzia {
 
            try {
               System.out.println("Inserisci data [gg/mm/yyyy]: ");
-              data = input.nextLine();
+              data = input.next();
 
               try {
                 DateFormat formatoData = DateFormat.getDateInstance(DateFormat.SHORT);
@@ -135,7 +135,7 @@ public class Agenzia {
                 return;
               }
               System.out.println("Inserisci ubicazione: ");
-              ub = input.nextLine();
+              ub = input.next();
               System.out.println("Inserisci metratura: ");
               metri = input.nextInt();
               System.out.println("Inserisci anno di costruzione dell'immobile: ");
