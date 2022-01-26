@@ -379,10 +379,10 @@ public class Agenzia {
             ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("salva.dat")));
             out.writeObject(Lista);
             out.close();
-            System.out.println("Dati salvati");
-        } catch (IOException e) {
-            System.out.println("Errore");
-            System.out.println(e);
+              System.out.println("Dati salvati");
+            } catch (IOException e) {
+              System.out.println("Errore");
+              System.out.println(e);
         }
     }
 
@@ -392,16 +392,16 @@ public class Agenzia {
             ObjectInputStream inputFile = new ObjectInputStream(new BufferedInputStream(new FileInputStream("salva.dat")));
             Lista = (Vector<Annunci>) inputFile.readObject();
             inputFile.close();
-            System.out.println("Carica file completato");
-        } catch (FileNotFoundException e) {
-            System.out.println("File non esistente");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Errore lettura file");
-        } catch (IOException e) {
-            System.out.println("Errore caricamento/salvataggio");
-        } catch (ClassCastException e){
-          System.out.println("errore cast");
-        }
+              System.out.println("Carica file completato");
+            } catch (FileNotFoundException e) {
+              System.out.println("File non esistente");
+            } catch (ClassNotFoundException e) {
+              System.out.println("Errore lettura file");
+            } catch (IOException e) {
+              System.out.println("Errore caricamento/salvataggio");
+             } catch (ClassCastException e){
+              System.out.println("errore cast");
+            }
       
     }
 }
