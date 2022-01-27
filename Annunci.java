@@ -13,13 +13,11 @@ public class Annunci implements Serializable{
 	private String tipologia;
 	//Codice specifico dell'annuncio
 	private int codiceAnnuncio; 
-	
-	//Codice progressivo dell'annuncio
-	static int codice = 1;
+
 	static final long serialVersionUID = 1;
 
 	
-	public Annunci(Date dataPubblicazione, String ubicazione, int superficie, int annoCostruzione, String classeEnergetica, int numeroStanze, boolean doppiServizi,int prezzo,String tipologia) {
+	public Annunci(int codice,Date dataPubblicazione, String ubicazione, int superficie, int annoCostruzione, String classeEnergetica, int numeroStanze, boolean doppiServizi,int prezzo,String tipologia) {
 		this.dataPubblicazione = dataPubblicazione;
         this.ubicazione = ubicazione;
         this.superficie = superficie;
@@ -30,7 +28,6 @@ public class Annunci implements Serializable{
         this.prezzo = prezzo;
 		this.tipologia = tipologia;
 		this.codiceAnnuncio = codice;
-		codice ++;
     }
 
 

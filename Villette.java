@@ -4,8 +4,8 @@ public class Villette extends Annunci{
 	
 	private int dimensioneGiardino;
 	
-	public Villette (Date data, String ubicazione, int superficie,int annoCostruzione,String classeEnergetica,int numeroStanze,boolean doppiServizi,int prezzo,String tipologia,int dimensioneGiardino) {
-		super(data, ubicazione, superficie, annoCostruzione, classeEnergetica, numeroStanze, doppiServizi, prezzo, tipologia);
+	public Villette (int codice,Date data, String ubicazione, int superficie,int annoCostruzione,String classeEnergetica,int numeroStanze,boolean doppiServizi,int prezzo,String tipologia,int dimensioneGiardino) {
+		super(codice,data, ubicazione, superficie, annoCostruzione, classeEnergetica, numeroStanze, doppiServizi, prezzo, tipologia);
 		this.dimensioneGiardino = dimensioneGiardino;	
 	}
 
