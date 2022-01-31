@@ -1,6 +1,6 @@
 import java.util.*;
 
-//(sotto)classe di Annunci per la gestione degli immmobili di tipo Appartamento
+//(sotto)classe di Annunci per la gestione degli immobili di tipo Appartamento
 public class Appartamenti extends Annunci {
 	
 	private int pianoAppartamento;
