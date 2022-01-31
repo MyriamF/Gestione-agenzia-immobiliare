@@ -3,30 +3,30 @@ import java.util.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 
+// è la classe che definisce i metodi invocati dal main 
 public class Agenzia {
   private static final DateFormat sdf = null;
   private Vector<Annunci> Lista = null;
   private int codice;
 
+  //costruttore classe Agenzia
   public Agenzia() {
     Lista = new Vector<Annunci>();
     this.codice = 1;
   }
 
-  /**
-  * 
-  * @return
-  */
   public Vector<Annunci> getLista(){
     return Lista;
   }
 
+  //metodo conctrollo degli interi 
   public void checkNegativo(int parametro) throws InputMismatchException{
     if(parametro <= 0){
       throw new InputMismatchException();
     }
   }
 
+  //metodo di controllo per l'inserimento dell'anno
   public void checkAnno(int anno) throws InputMismatchException{
     if (anno< 1800){
       throw new InputMismatchException();
@@ -34,11 +34,7 @@ public class Agenzia {
   }
 
 
-      /**
-       * 
-       * @param input
-       * @param tipo
-       */
+      //metodo per aggiungere un annuncio al Vettore
       public void aggiuntaAnnuncio(Scanner input,int tipo) {
         String menu3 = "1. Dotato di doppi servizi.\n 2. Non dotato di doppi servizi";
         int sceltaServizi = 0;
@@ -209,6 +205,7 @@ public class Agenzia {
         }
       }
 
+      //metodo per visualizzare gli annunci in ordine di data, dalla più recente alla più datata
       public void elencoPerData() {
         Comparator <Annunci> comparator = new AnnunciComparator ();
           Collections.sort(Lista, comparator);
@@ -219,6 +216,7 @@ public class Agenzia {
         }
       }
 
+      //metodo per stampare l'elenco completo degli annunci con tutti i dettagli
       public void visualizzaDettagli(Scanner input) {
           int id= 0;
           boolean presente = false;
@@ -247,6 +245,7 @@ public class Agenzia {
           }
         
       
+      //metodo che permette di visualizzare i dettagli di un determinato tipo di immobile
       public void elencoTipo (Scanner input)  {
         String menu6 = "1.Appartamenti \n2.Villette";
         int num = 0;
@@ -278,7 +277,7 @@ public class Agenzia {
       }  
       
       
-
+      //metodo per visualizzare gli annunci compresi in un determinato range di prezzo 
       public void filtroPrezzo(Scanner input) {
         int min = 0;
         int max = 0;
@@ -315,7 +314,8 @@ public class Agenzia {
             return;
         }
       }
-
+    
+    //salva file serializzato 
     public void salva() {
       try {
           ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("salva.dat")));
@@ -328,6 +328,8 @@ public class Agenzia {
       }
   }
 
+  
+  //metodo per la lettura del file serializzato
   @SuppressWarnings("unchecked")
     public void caricaFile() {
       try {

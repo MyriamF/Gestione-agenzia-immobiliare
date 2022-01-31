@@ -1,11 +1,14 @@
 import java.util.*;
 
+//classe che contiene il main 
 public class Gestione {
     public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-
-		Agenzia agenzia = new Agenzia(); // inizializzazione oggetto classe agenzia DA CANCELLARE
-	    String menu = "1. Aggiungere annuncio\n2. Eliminare annuncio\n3. Elenco sintetico per data\n4. Visualizza dettagli\n5. Elenco sintetico per tipo\n6. Filtro prezzo\n7. Salva\n8. Carica\n9. Esci\n";
+   
+		Agenzia agenzia = new Agenzia(); 
+     
+        //stampa menu testuale
+	      String menu = "1. Aggiungere annuncio\n2. Eliminare annuncio\n3. Elenco sintetico per data\n4. Visualizza dettagli\n5. Elenco sintetico per tipo\n6. Filtro prezzo\n7. Salva\n8. Carica\n9. Esci\n";
         String menu2 = "1. Aggiungi un appartamento.\n2. Aggiungi una villetta";
         int sceltaTipologia = 0;
         int scelta = 0;
@@ -25,6 +28,7 @@ public class Gestione {
             }
             while (scelta == 0);
 
+          //invocazione dei metodi della classe Agenzia
             switch (scelta) {
               case 1: {
                 System.out.println("Aggiungere annuncio");

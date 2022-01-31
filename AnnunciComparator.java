@@ -1,5 +1,6 @@
 import java.util.*;
 
+//classe che implementa l'interfaccia Comparator per il confronto tra le date
 public class AnnunciComparator implements Comparator <Annunci> {
     
         public int compare (Annunci a1, Annunci a2){
