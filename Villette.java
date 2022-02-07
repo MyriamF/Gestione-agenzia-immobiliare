@@ -1,8 +1,7 @@
 import java.util.*;
 
-//(sotto)classe di Annunci per la gestione degli immobili di tipo Villette
+//sottoclasse di Annunci per la gestione degli immobili di tipo Villette
 public class Villette extends Annunci{
-	
 	private int dimensioneGiardino;
 	
 	//costruttore
@@ -11,19 +10,19 @@ public class Villette extends Annunci{
 		this.dimensioneGiardino = dimensioneGiardino;	
 	}
 
-	//si effetua l'overriding per aggiungere al metodo stampaCompleta() anche gli attributi specifici della classe Villette
+	/*si effetua l'overriding per aggiungere al metodo stampaCompleta() 
+	anche gli attributi specifici della classe Villette
+	*/
 	@Override
 	public String stampaCompleta(){
 		System.out.println(super.stampaCompleta());
 		return "Giardino: " + getDimensioneGiardino();
 	}
 
-	//metodo get
 	public int  getDimensioneGiardino() {
 		return dimensioneGiardino;
 	}
 	
-	//metodo set
 	public void setDimensioneGiardino(int dimensione) {
 		this.dimensioneGiardino = dimensione;
 	}
