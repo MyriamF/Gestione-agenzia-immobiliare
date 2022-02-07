@@ -34,14 +34,25 @@ public class Annunci implements Serializable{
 
 	//metodo di stampa sintetica che permette la visualizzazione del codice, della tipologia, della data, della sueprficie e del prezzo dell'annuncio
 	public String stampaSintetica() {
-		return "Codice annuncio:"+ getCodiceAnnuncio() + "\n" + "Tipologia:" + getTipologia() + "\n" + "Data:" + getDataPubblicazione() + "\n" + "Superficie:" + getSuperficie() + "\n" + "Prezzo:" + getPrezzo();
+		return "Codice annuncio:"+ getCodiceAnnuncio() + "\n" + "Tipologia:" + getTipologia() + "\n" + "Data:" 
+		+ getDataPubblicazione() + "\n" + "Superficie:" + getSuperficie() + "\n" + "Prezzo:" + getPrezzo();
 	}
 
 	//metodo di stampa completa permette d visualizzare tutti gli attributi relativi ad un annuncio
 	public String stampaCompleta() {
-		return "Codice annuncio:"+getCodiceAnnuncio() + "\n" + "Data:" + getDataPubblicazione() + "\n" + "Ubicazione:" + getUbicazione() + "\n" + "Superficie:" + getSuperficie() + "\n" 
-		+ "Prezzo:" + getAnnoCostruzione() + "\n" + "Classe Energetica:" + getClasseEnergetica() + "\n" + "Numero stanze:" + getNumeroStanze() + "\n" + "Presenza di doppi servizi:" + getDoppiServizi()+ "\n"
-		+ "Prezzo:"+ getPrezzo() + "\n" + "Tipologia:" + getTipologia();
+		System.out.println (stampaSintetica());
+
+		String servizi = "";
+		if (getDoppiServizi()){
+			servizi = "Si";
+		}
+		else {
+			servizi = "No";
+		}
+
+		return "Ubicazione:" + getUbicazione() + "\n" + 
+		"Anno Costruzione:" + getAnnoCostruzione() + "\n" + "Classe Energetica:" + getClasseEnergetica() + "\n" 
+		+ "Numero stanze:" + getNumeroStanze() + "\n" + "Presenza di doppi servizi:" + servizi + "\n";
 	}
 
 	//metodo get

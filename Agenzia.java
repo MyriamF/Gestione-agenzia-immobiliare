@@ -226,18 +226,18 @@ public class Agenzia {
           try {
               id = input.nextInt(); 
 
-          for (int i = 0; i < Lista.size(); i++) {
-            if ( Lista.get(i).getCodiceAnnuncio() == id) {
+              for (int i = 0; i < Lista.size(); i++) {
+                if ( Lista.get(i).getCodiceAnnuncio() == id) {
                 System.out.println(Lista.get(i).stampaCompleta());
                 presente = true;   
                 break;
-          }
-            if (!presente){
-              System.out.println("L'annuncio non e' presente");
+                }
+              }
+              if (!presente){
+                System.out.println("L'annuncio non e' presente");
               
+              } 
             }
-            }
-          } 
             catch (InputMismatchException e) {
               System.out.println("Errore dato atteso");
               input.next();
@@ -256,9 +256,9 @@ public class Agenzia {
             try { 
               num = input.nextInt();
               if (num == 1){
-              tipologia.equals("Appartamento");
+              tipologia = "Appartamento";
             } else if (num == 2) {
-              tipologia.equals("Villetta");
+              tipologia = "Villetta";
             } else {
               throw new InputMismatchException();
             } 
@@ -281,8 +281,7 @@ public class Agenzia {
       public void filtroPrezzo(Scanner input) {
         int min = 0;
         int max = 0;
-        boolean eccessoMin = false;
-        boolean eccessoMax = false;
+        int tmp = 0;
 
         System.out.println("Inserisci il range di prezzo: ");
 
@@ -291,23 +290,12 @@ public class Agenzia {
           max = input.nextInt();
 
           for(int i = 0; i < Lista.size(); i++){
-            if ((min>= Lista.get(i).getPrezzo() && (max <= Lista.get(i).getPrezzo()))){
-              Lista.get(i).stampaSintetica();
-            }
-
-            if (min < Lista.get(i).getPrezzo()){
-              eccessoMin = true;
-            } else if (max > Lista.get(i).getPrezzo()){
-              eccessoMax = true;
+            tmp = Lista.get(i).getPrezzo();
+            if (tmp >= min && tmp <= max){
+              System.out.println(Lista.get(i).stampaSintetica());
             }
           }
-
-            if (!eccessoMin){
-              System.out.println("Il prezzo inserito è troppo basso");
-            } else if (!eccessoMax){
-              System.out.println("Il prezzo inserito è troppo alto");
-            }
-          }
+        }
         catch (InputMismatchException e){
             System.out.println ("Errore dato atteso");
             input.next(); 

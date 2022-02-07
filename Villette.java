@@ -14,8 +14,8 @@ public class Villette extends Annunci{
 	//si effetua l'overriding per aggiungere al metodo stampaCompleta() anche gli attributi specifici della classe Villette
 	@Override
 	public String stampaCompleta(){
-		super.stampaCompleta ();
-		return super.stampaCompleta() + "\n" + getDimensioneGiardino();
+		System.out.println(super.stampaCompleta());
+		return "Giardino: " + getDimensioneGiardino();
 	}
 
 	//metodo get

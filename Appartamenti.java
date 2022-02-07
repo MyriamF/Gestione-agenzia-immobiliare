@@ -21,9 +21,26 @@ public class Appartamenti extends Annunci {
 	//si effetua l'overriding per aggiungere al metodo stampaCompleta() anche gli attributi specifici della classe Appartamenti
 	@Override
 	public String stampaCompleta (){
-		super.stampaCompleta ();
-		return super.stampaCompleta() + "\n" + getPianoAppartamento() + "\n" + getPianiCondominio() + "\n" + 
-		getGarage() + "\n" + getRiscaldamento() + "\n";
+		System.out.println (super.stampaCompleta());
+
+		String garage = "", riscaldamento = "";
+		
+		if (getGarage()){
+			garage = "Si";
+		}
+		else {
+			garage = "No";
+		}
+
+		if (getRiscaldamento()){
+			riscaldamento = "Si";
+		}
+		else {
+			riscaldamento = "No";
+		}
+
+		return "Piano appartamento: " + getPianoAppartamento() + "\n" + "Piani condominio: " + getPianiCondominio() + "\n" + 
+		"Garage: " + garage + "\n" + "Riscaldamento: " + riscaldamento + "\n";
 	}
 
 	//metodo get
