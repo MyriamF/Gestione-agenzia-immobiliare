@@ -102,8 +102,8 @@ public class Gestione {
 
           case 9: {
             System.out.println("Chiusura programma");
-              input.close();
-              return;
+            input.close();
+            return;
           }  
 
           default: {

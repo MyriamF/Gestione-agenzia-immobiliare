@@ -53,7 +53,6 @@ public class Agenzia {
 
       try {
         DateFormat formatoData = DateFormat.getDateInstance(DateFormat.SHORT);
-        // imposta che i calcoli di conversione della data siano rigorosi
         formatoData.setLenient(false);
         d = formatoData.parse(data);
       } 
@@ -203,15 +202,21 @@ public class Agenzia {
     stampaInteroCompleta();
     System.out.println("Inserisci il codice dell'annnuncio da eliminare:");
     codice = input.nextInt();
-    
-    for ( int i = 0; i < Lista.size(); i++){
+     
+    try {
+      codice = input.nextInt();
+     }   
+    catch (InputMismatchException e) {
+    System.out.println("Errore dato atteso");
+    input.next();
+  }
+      for ( int i = 0; i < Lista.size(); i++){
       if (codice == Lista.get(i).getCodiceAnnuncio()) {
         Lista.remove(i);
         presente = true;
         break;
       }
     }
-    
     if (!presente){
         System.out.println("L'annuncio non e' presente");
     } 
@@ -219,7 +224,7 @@ public class Agenzia {
       System.out.println("Eliminazione andata a buon fine");    
     }
   }
-
+  
   //metodo per visualizzare gli annunci in ordine di data, dalla più recente alla più datata
   public void elencoPerData() {
     Comparator <Annunci> comparator = new AnnunciComparator ();
@@ -242,9 +247,9 @@ public class Agenzia {
 
       for (int i = 0; i < Lista.size(); i++) {
         if ( Lista.get(i).getCodiceAnnuncio() == id) {
-        System.out.println(Lista.get(i).stampaCompleta());
-        presente = true;   
-        break;
+          System.out.println(Lista.get(i).stampaCompleta());
+          presente = true;   
+          break;
         }
       }
 
