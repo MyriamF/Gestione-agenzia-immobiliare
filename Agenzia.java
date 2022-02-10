@@ -201,15 +201,10 @@ public class Agenzia {
     boolean presente = false;
     stampaInteroCompleta();
     System.out.println("Inserisci il codice dell'annnuncio da eliminare:");
-    codice = input.nextInt();
      
     try {
       codice = input.nextInt();
-     }   
-    catch (InputMismatchException e) {
-    System.out.println("Errore dato atteso");
-    input.next();
-  }
+
       for ( int i = 0; i < Lista.size(); i++){
       if (codice == Lista.get(i).getCodiceAnnuncio()) {
         Lista.remove(i);
@@ -217,12 +212,19 @@ public class Agenzia {
         break;
       }
     }
+  } catch (InputMismatchException e) {
+    System.out.println("Errore dato atteso");
+    input.next();
+  }
+
     if (!presente){
         System.out.println("L'annuncio non e' presente");
     } 
     else {
-      System.out.println("Eliminazione andata a buon fine");    
+      System.out.println("Eliminazione andata a buon fine");
     }
+  
+  
   }
   
   //metodo per visualizzare gli annunci in ordine di data, dalla più recente alla più datata
