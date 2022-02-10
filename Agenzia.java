@@ -199,7 +199,7 @@ public class Agenzia {
   public void eliminaAnnuncio(Scanner input) {
     int codice = 0;
     boolean presente = false;
-    stampaInteroCompleta();
+    stampaInteroSintetica();
     System.out.println("Inserisci il codice dell'annnuncio da eliminare:");
      
     try {
